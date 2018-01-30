@@ -11,7 +11,7 @@ No, this is just a prototype - a proof of concept. If there is interest, support
 
 1. Open ComputeShaderSort11\ComputeShaderSort11_2017_Win10.sln in VS 2017
 2. Build Debug or Release in x64 (better Debug to see more variables under debugger)
-3. In ComputeShaderSort11 project properties -> Debugging -> working directory -> set to "..\ThirdParty\Shaderator"
+3. In ComputeShaderSort11 project properties -> Debugging -> working directory -> set to "..\Shaderator"
 4. Put breakpoint anywhere in ComputeShaderSort11.hlsl shader file
 5. Press F5 to Debug
 
