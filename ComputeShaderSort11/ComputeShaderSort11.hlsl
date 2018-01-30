@@ -6,6 +6,8 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 //--------------------------------------------------------------------------------------
 
+#include "shaderator.h"
+
 #define BITONIC_BLOCK_SIZE 512
 
 #define TRANSPOSE_BLOCK_SIZE 16
@@ -13,30 +15,30 @@
 //--------------------------------------------------------------------------------------
 // Constant Buffers
 //--------------------------------------------------------------------------------------
-cbuffer CB : register( b0 )
-{
+SHADERETOR_CBUFFER(CB, 0)
+SHADER_OPEN
     unsigned int g_iLevel;
     unsigned int g_iLevelMask;
     unsigned int g_iWidth;
     unsigned int g_iHeight;
-};
+SHADER_CLOSE
 
 //--------------------------------------------------------------------------------------
 // Structured Buffers
 //--------------------------------------------------------------------------------------
-StructuredBuffer<unsigned int> Input : register( t0 );
-RWStructuredBuffer<unsigned int> Data : register( u0 );
+StructuredBuffer<unsigned int> SHADERATOR_REGISTER_T(Input, 0);
+RWStructuredBuffer<unsigned int> SHADERATOR_REGISTER_U(Data, 0);
 
 //--------------------------------------------------------------------------------------
 // Bitonic Sort Compute Shader
 //--------------------------------------------------------------------------------------
 groupshared unsigned int shared_data[BITONIC_BLOCK_SIZE];
 
-[numthreads(BITONIC_BLOCK_SIZE, 1, 1)]
-void BitonicSort( uint3 Gid : SV_GroupID, 
-                  uint3 DTid : SV_DispatchThreadID, 
-                  uint3 GTid : SV_GroupThreadID, 
-                  uint GI : SV_GroupIndex )
+SHADERATOR_NUM_THREADS(BITONIC_BLOCK_SIZE, 1, 1)
+void BitonicSort(SHADERATOR_SV_DispatchThreadID(DTid), 
+                 SHADERATOR_SV_GroupID(Gid),
+                 SHADERATOR_SV_GroupThreadID(GTid),
+                 SHADERATOR_SV_GroupIndex(GI))
 {
     // Load shared data
     shared_data[GI] = Data[DTid.x];
@@ -60,11 +62,11 @@ void BitonicSort( uint3 Gid : SV_GroupID,
 //--------------------------------------------------------------------------------------
 groupshared unsigned int transpose_shared_data[TRANSPOSE_BLOCK_SIZE * TRANSPOSE_BLOCK_SIZE];
 
-[numthreads(TRANSPOSE_BLOCK_SIZE, TRANSPOSE_BLOCK_SIZE, 1)]
-void MatrixTranspose( uint3 Gid : SV_GroupID, 
-                      uint3 DTid : SV_DispatchThreadID, 
-                      uint3 GTid : SV_GroupThreadID, 
-                      uint GI : SV_GroupIndex )
+SHADERATOR_NUM_THREADS(TRANSPOSE_BLOCK_SIZE, TRANSPOSE_BLOCK_SIZE, 1)
+void MatrixTranspose( SHADERATOR_SV_DispatchThreadID(DTid), 
+                      SHADERATOR_SV_GroupID(Gid),
+                      SHADERATOR_SV_GroupThreadID(GTid),
+                      SHADERATOR_SV_GroupIndex(GI))
 {
     transpose_shared_data[GI] = Input[DTid.y * g_iWidth + DTid.x];
     GroupMemoryBarrierWithGroupSync();

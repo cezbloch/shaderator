@@ -8,12 +8,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ComputeShaderSort11.cpp" />
+    <ClCompile Include="CSSortExecutor.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ComputeShaderSort11.hlsl">
+    <ClInclude Include="CSSortExecutor.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="ComputeShaderSort11.hlsl">
       <Filter>Shaders</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
+    </FxCompile>
   </ItemGroup>
 </Project>

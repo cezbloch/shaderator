@@ -16,6 +16,7 @@
 #include <vector>
 #include <algorithm>
 #include <random>
+#include "CSSortExecutor.h"
 
 #if D3D_COMPILER_VERSION < 46
 #include <d3dx11.h>
@@ -41,7 +42,7 @@
 // The number of elements to sort is limited to an even power of 2
 // At minimum 8,192 elements - BITONIC_BLOCK_SIZE * TRANSPOSE_BLOCK_SIZE
 // At maximum 262,144 elements - BITONIC_BLOCK_SIZE * BITONIC_BLOCK_SIZE
-const UINT NUM_ELEMENTS = 512 * 512;
+const UINT NUM_ELEMENTS = 512 * 16; //512 * 512
 const UINT BITONIC_BLOCK_SIZE = 512;
 const UINT TRANSPOSE_BLOCK_SIZE = 16;
 const UINT MATRIX_WIDTH = BITONIC_BLOCK_SIZE;
@@ -49,6 +50,9 @@ const UINT MATRIX_HEIGHT = NUM_ELEMENTS / BITONIC_BLOCK_SIZE;
 
 std::vector<UINT> data( NUM_ELEMENTS );
 std::vector<UINT> results( NUM_ELEMENTS );
+
+auto buffer1UAV = CreateBuffer(NUM_ELEMENTS);
+auto buffer2UAV = CreateBuffer(NUM_ELEMENTS);
 
 ID3D11Device*               g_pd3dDevice = nullptr;
 ID3D11DeviceContext*        g_pd3dImmediateContext = nullptr;
@@ -401,6 +405,57 @@ void GPUSort()
     }
 }
 
+//--------------------------------------------------------------------------------------
+// CPU Sort
+//--------------------------------------------------------------------------------------
+void CPUShaderSort()
+{
+  CSSortExecutor cpuShader;
+
+  // Upload the data
+  cpuShader.UpdateSubresource(buffer1UAV, &data[0], NUM_ELEMENTS);
+
+  // Sort the data
+  // First sort the rows for the levels <= to the block size
+  for (UINT level = 2; level <= BITONIC_BLOCK_SIZE; level = level * 2)
+  {
+    cpuShader.SetConstants(level, level, MATRIX_HEIGHT, MATRIX_WIDTH);
+
+    // Sort the row data
+    cpuShader.SetUnorderedAccessViews0(buffer1UAV);
+    cpuShader.DispatchBitonicSort(NUM_ELEMENTS / BITONIC_BLOCK_SIZE, 1, 1);
+  }
+
+  // Then sort the rows and columns for the levels > than the block size
+  // Transpose. Sort the Columns. Transpose. Sort the Rows.
+  for (UINT level = (BITONIC_BLOCK_SIZE * 2); level <= NUM_ELEMENTS; level = level * 2)
+  {
+    cpuShader.SetConstants((level / BITONIC_BLOCK_SIZE), (level & ~NUM_ELEMENTS) / BITONIC_BLOCK_SIZE, MATRIX_WIDTH, MATRIX_HEIGHT);
+
+    // Transpose the data from buffer 1 into buffer 2
+    cpuShader.SetUnorderedAccessViews0(buffer2UAV);
+    cpuShader.SetShaderResources0(buffer1UAV);
+    cpuShader.DispatchMatrixTranspose(MATRIX_WIDTH / TRANSPOSE_BLOCK_SIZE, MATRIX_HEIGHT / TRANSPOSE_BLOCK_SIZE, 1);
+
+    // Sort the transposed column data
+    cpuShader.SetUnorderedAccessViews0(buffer2UAV);
+    cpuShader.SetShaderResources0(buffer1UAV);
+    cpuShader.DispatchBitonicSort(NUM_ELEMENTS / BITONIC_BLOCK_SIZE, 1, 1);
+
+    cpuShader.SetConstants(BITONIC_BLOCK_SIZE, level, MATRIX_HEIGHT, MATRIX_WIDTH);
+
+    // Transpose the data from buffer 2 back into buffer 1
+    cpuShader.SetUnorderedAccessViews0(buffer1UAV);
+    cpuShader.SetShaderResources0(buffer2UAV);
+    cpuShader.DispatchMatrixTranspose(MATRIX_HEIGHT / TRANSPOSE_BLOCK_SIZE, MATRIX_WIDTH / TRANSPOSE_BLOCK_SIZE, 1);
+
+    // Sort the row data
+    cpuShader.SetUnorderedAccessViews0(buffer1UAV);
+    cpuShader.SetShaderResources0(buffer2UAV);
+    cpuShader.DispatchBitonicSort(NUM_ELEMENTS / BITONIC_BLOCK_SIZE, 1, 1);
+  }
+}
+
 
 //--------------------------------------------------------------------------------------
 // CPU Sort
@@ -453,6 +508,11 @@ int __cdecl wmain()
     CPUSort();
     printf( "...CPU Sort Finished\n" );
 
+    // Sort the data on the CPU to simulate GPU
+    printf("Starting CPU Shader Sort...\n");
+    CPUShaderSort();
+    printf("...CPU Shader Sort Finished\n");
+
     // Compare the results for correctness
     bool bComparisonSucceeded = true;
     for( UINT i = 0 ; i < NUM_ELEMENTS ; ++i )
@@ -463,7 +523,19 @@ int __cdecl wmain()
             break;
         }
     }
-    printf( "Comparison %s\n", (bComparisonSucceeded)? "Succeeded" : "FAILED" );
+    printf( "CPU vs GPU Comparison %s\n", (bComparisonSucceeded)? "Succeeded" : "FAILED" );
+
+    bComparisonSucceeded = true;
+    for (UINT i = 0; i < NUM_ELEMENTS; ++i)
+    {
+      if (data[i] != buffer1UAV[i])
+      {
+        bComparisonSucceeded = false;
+        break;
+      }
+    }
+    printf("CPU vs CPU Shader Comparison %s\n", (bComparisonSucceeded) ? "Succeeded" : "FAILED");
+
 
     // Cleanup the resources
     SAFE_RELEASE( g_pReadBackBuffer );
