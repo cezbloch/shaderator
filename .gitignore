@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/ComputeShaderSort11/Debug
+/ComputeShaderSort11/.vs/ComputeShaderSort11_2017_Win10/v15
+/ComputeShaderSort11/x64/Debug
+/ComputeShaderSort11.hlsl
+/Shaderator/ComputeShaderSort11.hlsl
