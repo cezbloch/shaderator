@@ -47,7 +47,6 @@ namespace ComputeShaderUnitTests
     //  Logger::WriteMessage("In Class Cleanup");
     //}
 
-
     TEST_METHOD(TestBitonicSortEmptyInput)
     {
       // Arrange
