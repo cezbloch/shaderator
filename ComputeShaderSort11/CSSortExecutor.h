@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include "shader_types.h"
 
 class CSSortExecutor
 {
@@ -13,6 +14,8 @@ public:
 
   void DispatchBitonicSort(unsigned int x, unsigned int y, unsigned int z);
   void DispatchMatrixTranspose(unsigned int x, unsigned int y, unsigned int z);
+
+  void RunBitonicSortKernel(uint3 dispatchThreadId, uint3 groupId, uint3 groupThreadId, uint groupIndex);
 
 private:
   void restore_buffers();
