@@ -40,7 +40,7 @@ namespace glm
 		template<qualifier P>
 		GLM_FUNC_DECL mat(mat<2, 3, T, P> const& m);
 
-		GLM_FUNC_DECL mat(T scalar);
+		GLM_FUNC_DECL explicit mat(T scalar);
 		GLM_FUNC_DECL mat(
 			T x0, T y0, T z0,
 			T x1, T y1, T z1);
@@ -77,14 +77,6 @@ namespace glm
 		// -- Unary arithmetic operators --
 
 		GLM_FUNC_DECL mat<2, 3, T, Q> & operator=(mat<2, 3, T, Q> const& m) GLM_DEFAULT;
-
-    //template<typename U>
-    GLM_FUNC_DECL bool operator==(int scalar);
-    GLM_FUNC_DECL bool operator>=(int scalar);
-    template<typename U>
-    GLM_FUNC_DECL mat<2, 3, T, Q> & operator<<(U scalar);
-    template<typename U>
-    GLM_FUNC_DECL mat<2, 3, T, Q> & operator>>(U scalar);
 
 		template<typename U>
 		GLM_FUNC_DECL mat<2, 3, T, Q> & operator=(mat<2, 3, U, Q> const& m);

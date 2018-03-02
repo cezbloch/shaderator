@@ -42,8 +42,6 @@ namespace glm
 
 			union
 			{
-#pragma warning(push)
-#pragma warning(disable : 4201)
 				struct { T x, y, z, w;};
 				struct { T r, g, b, a; };
 				struct { T s, t, p, q; };
@@ -61,7 +59,6 @@ namespace glm
 					GLM_SWIZZLE4_4_MEMBERS(T, Q, r, g, b, a)
 					GLM_SWIZZLE4_4_MEMBERS(T, Q, s, t, p, q)
 #				endif//GLM_SWIZZLE
-#pragma warning(pop)
 			};
 
 #			if GLM_COMPILER & GLM_COMPILER_CLANG
@@ -99,7 +96,7 @@ namespace glm
 
 		// -- Explicit basic constructors --
 
-		GLM_FUNC_DECL GLM_CONSTEXPR_SIMD vec(T scalar);
+		GLM_FUNC_DECL GLM_CONSTEXPR_SIMD explicit vec(T scalar);
 		GLM_FUNC_DECL GLM_CONSTEXPR_SIMD vec(T x, T y, T z, T w);
 
 		// -- Conversion scalar constructors --
@@ -201,8 +198,6 @@ namespace glm
 
 		template<typename U>
 		GLM_FUNC_DECL vec<4, T, Q>& operator=(vec<4, U, Q> const& v);
-    //template<typename U>
-    //GLM_FUNC_DECL vec<4, T, Q>& operator<<(U scalar);
 		template<typename U>
 		GLM_FUNC_DECL vec<4, T, Q>& operator+=(U scalar);
 		template<typename U>

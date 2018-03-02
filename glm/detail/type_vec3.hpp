@@ -12,7 +12,6 @@
 #	endif
 #endif //GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
 #include <cstddef>
-#include <type_traits>
 
 namespace glm
 {
@@ -43,8 +42,6 @@ namespace glm
 
 			union
 			{
-#pragma warning(push)
-#pragma warning(disable : 4201)
 				struct{ T x, y, z; };
 				struct{ T r, g, b; };
 				struct{ T s, t, p; };
@@ -60,7 +57,6 @@ namespace glm
 					GLM_SWIZZLE3_4_MEMBERS(T, Q, r, g, b)
 					GLM_SWIZZLE3_4_MEMBERS(T, Q, s, t, p)
 #				endif//GLM_SWIZZLE
-#pragma warning(pop)
 			};
 		
 #			if GLM_COMPILER & GLM_COMPILER_CLANG
@@ -97,7 +93,7 @@ namespace glm
 
 		// -- Explicit basic constructors --
 
-		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR vec(T scalar);
+		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR explicit vec(T scalar);
 		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR vec(T a, T b, T c);
 
 		// -- Conversion scalar constructors --
@@ -157,19 +153,6 @@ namespace glm
 
 		template<typename U>
 		GLM_FUNC_DECL vec & operator=(vec<3, U, Q> const& v);
-    template<typename U>
-    GLM_FUNC_DECL vec & operator=(U scalar);
-    template<typename U>
-    GLM_FUNC_DECL vec & operator/(U scalar);
-    //template<typename U>
-    GLM_FUNC_DECL bool operator==(int scalar);
-    GLM_FUNC_DECL bool operator<(int scalar);
-    GLM_FUNC_DECL bool operator>=(int scalar);
-
-    //GLM_FUNC_DECL vec & operator<<(int scalar);
-
-    template<typename U>
-    GLM_FUNC_DECL vec & operator<<(U scalar);
 		template<typename U>
 		GLM_FUNC_DECL vec & operator+=(U scalar);
 		template<typename U>
@@ -375,17 +358,11 @@ namespace glm
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL vec<3, T, Q> operator<<(vec<3, T, Q> const& v, T scalar);
 
-  template<typename T, qualifier Q>
-  GLM_FUNC_DECL vec<3, T, Q> operator<<(vec<3, T, Q> const& v, int scalar);
-
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL vec<3, T, Q> operator<<(vec<3, T, Q> const& v1, vec<1, T, Q> const& v2);
 
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL vec<3, T, Q> operator<<(T scalar, vec<3, T, Q> const& v);
-
-  template<typename T, qualifier Q>
-  GLM_FUNC_DECL vec<3, T, Q> operator<<(int scalar, vec<3, T, Q> const& v);
 
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL vec<3, T, Q> operator<<(vec<1, T, Q> const& v1, vec<3, T, Q> const& v2);
@@ -395,9 +372,6 @@ namespace glm
 
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL vec<3, T, Q> operator>>(vec<3, T, Q> const& v, T scalar);
-
-  //template<typename T, qualifier Q, typename U>
-  //GLM_FUNC_DECL vec<3, T, Q> operator/(vec<3, T, Q> const& v, U scalar);
 
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL vec<3, T, Q> operator>>(vec<3, T, Q> const& v1, vec<1, T, Q> const& v2);

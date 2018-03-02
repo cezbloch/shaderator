@@ -171,38 +171,6 @@ namespace glm
 		}
 #	endif//!GLM_HAS_DEFAULTED_FUNCTIONS
 
-  template<typename T, qualifier Q>
-  //template<typename U>
-  GLM_FUNC_QUALIFIER bool mat<2, 3, T, Q>::operator==(int scalar)
-  {
-    return (this->value[0] == scalar) && (this->value[1] == scalar);
-  }
-
-  template<typename T, qualifier Q>
-  //template<typename U>
-  GLM_FUNC_QUALIFIER bool mat<2, 3, T, Q>::operator>=(int scalar)
-  {
-    return (this->value[0] >= scalar) && (this->value[1] >= scalar);
-  }
-
-  template<typename T, qualifier Q>
-  template<typename U>
-  GLM_FUNC_QUALIFIER mat<2, 3, T, Q>& mat<2, 3, T, Q>::operator<<(U scalar)
-  {
-    this->value[0] = this->value[0] << scalar;
-    this->value[1] = this->value[1] << scalar;
-    return *this;
-  }
-
-  template<typename T, qualifier Q>
-  template<typename U>
-  GLM_FUNC_QUALIFIER mat<2, 3, T, Q>& mat<2, 3, T, Q>::operator>>(U scalar)
-  {
-    this->value[0] = this->value[0] >> scalar;
-    this->value[1] = this->value[1] >> scalar;
-    return *this;
-  }
-
 	template<typename T, qualifier Q>
 	template<typename U>
 	GLM_FUNC_QUALIFIER mat<2, 3, T, Q>& mat<2, 3, T, Q>::operator=(mat<2, 3, U, Q> const& m)

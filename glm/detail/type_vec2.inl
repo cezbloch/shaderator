@@ -112,16 +112,6 @@ namespace glm
 		return *this;
 	}
 
-
-  template<typename T, qualifier Q>
-  template<typename U>
-  GLM_FUNC_QUALIFIER vec<2, T, Q> & vec<2, T, Q>::operator=(U scalar)
-  {
-    this->x = static_cast<T>(scalar);
-    this->y = static_cast<T>(scalar);
-    return *this;
-  }
-
 	template<typename T, qualifier Q>
 	template<typename U>
 	GLM_FUNC_QUALIFIER vec<2, T, Q> & vec<2, T, Q>::operator+=(U scalar)

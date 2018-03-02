@@ -197,12 +197,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER vec<N, T, Q> operator OPERAND ( const T& a, const GLM_SWIZZLE_TYPE1& b)                   \
 	{                                                                               \
 		return a OPERAND b();                                                       \
-	}   \
-	GLM_SWIZZLE_TEMPLATE1                                                          \
-	GLM_FUNC_QUALIFIER vec<N, T, Q> operator OPERAND ( const GLM_SWIZZLE_TYPE1& a, int b)                   \
-	{                                                                               \
-		return a() OPERAND b;                                                       \
-	}                                                                               \
+	}
 
 //
 // Macro for wrapping a function taking one argument (e.g. abs())
