@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="glm">
+      <UniqueIdentifier>{c057e25e-602a-40ad-a0f1-00d731285ac7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="glm\detail">
+      <UniqueIdentifier>{7e8824e0-521b-4ede-9a15-43e868899260}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="glm\gtc">
+      <UniqueIdentifier>{c2107325-c74b-4041-8243-e8d761a62dab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="glm\gtx">
+      <UniqueIdentifier>{4aca5046-e540-4eea-82e4-f27ee2431a4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="glm\simd">
+      <UniqueIdentifier>{4f3e3cd1-4680-410e-9482-520adf3cfb4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Templates">
+      <UniqueIdentifier>{fc54810c-1878-4e61-9578-0c0fd003ae9b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Engine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cpp_include.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="hlsl_include.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Barrier.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="shaderator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture2D.h">
+      <Filter>Templates</Filter>
+    </ClInclude>
+    <ClInclude Include="shader_types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CpuTimeMeasurement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Texture2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cpp_functions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CpuTimeMeasurement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
