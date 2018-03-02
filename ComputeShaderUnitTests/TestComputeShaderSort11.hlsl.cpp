@@ -1,4 +1,4 @@
-#include "stdafx.h"
+//#include "stdafx.h"
 #include "CppUnitTest.h"
 #include <vector>
 #include "CSSortExecutor.h"
