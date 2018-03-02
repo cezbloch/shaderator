@@ -42,6 +42,8 @@ namespace glm
 		
 			union
 			{
+        #pragma warning(push)
+        #pragma warning(disable : 4201)
 				struct{ T x, y; };
 				struct{ T r, g; };
 				struct{ T s, t; };
@@ -57,7 +59,7 @@ namespace glm
 					GLM_SWIZZLE2_4_MEMBERS(T, Q, r, g)
 					GLM_SWIZZLE2_4_MEMBERS(T, Q, s, t)
 #				endif//GLM_SWIZZLE
-
+        #pragma warning(pop)
 			};
 		
 #			if GLM_COMPILER & GLM_COMPILER_CLANG
