@@ -22,7 +22,6 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{979D44BD-659C-4CF5-A974-51121BB3D14F}</ProjectGuid>
     <RootNamespace>Shaderator</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
