@@ -1,16 +1,16 @@
 # What is this?
-Shaderator is a productivity tool intended to speed up Compute Shader development.
+Shaderator is a productivity library intended to speed up complex Compute Shader development. It also provides means to Unit Tests shader code offering protection against regressions.
 
 # What problem does it solve?
-Due to the nature of GPUs shaders cannot be debugged. Developer writes one, then executes and hopes for the best that the result is correct. Hundreds of thousand threads execute the same kernel function writing data to output buffer which can only be looked up when the Dispatch finished. This tool compiles .hlsl shader code to C++ and enables developer to leverage Visual Studio functionality to quickly find problems in the code.
+Due to the nature of GPUs shaders are hard to debug. Back in the day developer wrote one, executed a batch and hoped for the best that the result is correct. Kernel function is usually executed hundreds of thousand times writing data to output buffer which can only be looked up when the Dispatch finished. This tool compiles .hlsl shader code to C++ and enables developer to leverage full Visual Studio debugging functionality to quickly find problems in the code.
 
 # Will this work with any shader?
-No, this is just a prototype - a proof of concept. If there is interest, support for other shaders will be added.
+No, this is just a prototype - a proof of concept. If there is interest, support for more HLSL language features will be added.
 
-# Getting started
+# Getting started with debugging
 
 1. Open ComputeShaderSort11\ComputeShaderSort11_2017_Win10.sln in VS 2017
-2. Build Debug or Release in x64 (better Debug to see more variables under debugger)
+2. Build solution (better Debug to see more variables under debugger)
 3. In ComputeShaderSort11 project properties -> Debugging -> working directory -> set to "..\Shaderator"
 4. Put breakpoint anywhere in ComputeShaderSort11.hlsl shader file
 5. Press F5 to Debug
@@ -22,7 +22,19 @@ CPU shader is obviously very slow. The intention is to provide tools for faster 
 
 ![](http://oi67.tinypic.com/1zp6rvc.jpg)
 
+# Getting started with Unit Tests
+
+1. Open ComputeShaderSort11\ComputeShaderSort11_2017_Win10.sln in VS 2017
+2. Build solution
+3. Set processor architecture for Unit Tests. In VS menu go to "Test -> Test Settings -> Default Processor Architecture" and select the platform for which you have built the solution (X86 or X640.
+4. Open Test Explorer. In VS menu go to "Test -> Windows -> Test Explorer"
+5. In Test Explorer right click on the Unit Test found and press "Run Selected Tests" or "Debug Selected Tests"
+
 # Pre-requisites
 
 * Windows 10
 * Visual Studio 2017
+
+# Problems or feedback
+
+Please e-mail me at cez dot bloch at gmail dot com, you can also find email on my github profile.
