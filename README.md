@@ -4,9 +4,6 @@ Shaderator is a productivity library intended to speed up complex Compute Shader
 # What problem does it solve?
 Due to the nature of GPUs shaders are hard to debug. Back in the day developer wrote one, executed a batch and hoped for the best that the result is correct. Kernel function is usually executed hundreds of thousand times writing data to output buffer which can only be looked up when the Dispatch finished. This tool compiles .hlsl shader code to C++ and enables developer to leverage full Visual Studio debugging functionality to quickly find problems in the code.
 
-# Will this work with any shader?
-No, this is just a prototype - a proof of concept. If there is interest, support for more HLSL language features will be added.
-
 # Getting started with debugging
 
 1. Open ComputeShaderSort11\ComputeShaderSort11_2017_Win10.sln in VS 2017
@@ -34,6 +31,10 @@ CPU shader is obviously very slow. The intention is to provide tools for faster 
 
 * Windows 10
 * Visual Studio 2017
+
+# Will this work with any shader?
+No, this is just a prototype - a proof of concept, however it should work with many shaders. If there is interest, support for more HLSL language features will be added.
+At the moment matrices are not supported yet.
 
 # Problems or feedback
 
