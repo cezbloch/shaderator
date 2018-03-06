@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="ProjectConfigurations">
+    <Import Project="..\TargetPlatform.props" />
+  </ImportGroup>
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -31,7 +34,6 @@
     <ProjectGuid>{D3D1110B-96D0-4629-88B8-122C0256058C}</ProjectGuid>
     <RootNamespace>ComputeShaderSort11</RootNamespace>
     <Keyword>Win32Proj</Keyword>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -93,43 +95,43 @@
     <LinkIncremental>true</LinkIncremental>
     <GenerateManifest>true</GenerateManifest>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <OutDir>..\output\$(Platform)\$(Configuration)\$(ProjectName)</OutDir>
-    <IntDir>..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)</IntDir>
+    <OutDir>..\output\$(Platform)\$(Configuration)\$(ProjectName)\</OutDir>
+    <IntDir>..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|X64'">
     <LinkIncremental>true</LinkIncremental>
     <GenerateManifest>true</GenerateManifest>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <OutDir>..\output\$(Platform)\$(Configuration)\$(ProjectName)</OutDir>
-    <IntDir>..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)</IntDir>
+    <OutDir>..\output\$(Platform)\$(Configuration)\$(ProjectName)\</OutDir>
+    <IntDir>..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <GenerateManifest>true</GenerateManifest>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <OutDir>..\output\$(Platform)\$(Configuration)\$(ProjectName)</OutDir>
-    <IntDir>..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)</IntDir>
+    <OutDir>..\output\$(Platform)\$(Configuration)\$(ProjectName)\</OutDir>
+    <IntDir>..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|X64'">
     <LinkIncremental>false</LinkIncremental>
     <GenerateManifest>true</GenerateManifest>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <OutDir>..\output\$(Platform)\$(Configuration)\$(ProjectName)</OutDir>
-    <IntDir>..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)</IntDir>
+    <OutDir>..\output\$(Platform)\$(Configuration)\$(ProjectName)\</OutDir>
+    <IntDir>..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <GenerateManifest>true</GenerateManifest>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <OutDir>..\output\$(Platform)\$(Configuration)\$(ProjectName)</OutDir>
-    <IntDir>..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)</IntDir>
+    <OutDir>..\output\$(Platform)\$(Configuration)\$(ProjectName)\</OutDir>
+    <IntDir>..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile|X64'">
     <LinkIncremental>false</LinkIncremental>
     <GenerateManifest>true</GenerateManifest>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <OutDir>..\output\$(Platform)\$(Configuration)\$(ProjectName)</OutDir>
-    <IntDir>..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)</IntDir>
+    <OutDir>..\output\$(Platform)\$(Configuration)\$(ProjectName)\</OutDir>
+    <IntDir>..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
