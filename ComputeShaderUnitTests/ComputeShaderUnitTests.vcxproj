@@ -170,12 +170,27 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\ComputeShaderSort11\CSSortExecutor.cpp" />
+    <ClCompile Include="TestGlslRayTracer.cpp" />
     <ClCompile Include="TestComputeShaderSort11.hlsl.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Shaderator\Shaderator.vcxproj">
       <Project>{979d44bd-659c-4cf5-a974-51121bb3d14f}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ray_tracer.glsl">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <None Include="sample_shader.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="..\ComputeShaderSort11\ComputeShaderSort11.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

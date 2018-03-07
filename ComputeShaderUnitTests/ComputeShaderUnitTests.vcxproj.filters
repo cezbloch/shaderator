@@ -5,21 +5,43 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="library code">
+    <Filter Include="GLSL">
+      <UniqueIdentifier>{95466458-0dc8-49ae-b028-ad5d9661d1e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Executor Facades">
       <UniqueIdentifier>{0f32a547-54cb-47fb-b3ce-9a5795142d16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HLSL">
+      <UniqueIdentifier>{dec61c37-4296-455e-82e5-1236bcc75dd5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\ComputeShaderSort11\CSSortExecutor.h">
-      <Filter>library code</Filter>
+      <Filter>Executor Facades</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\ComputeShaderSort11\CSSortExecutor.cpp">
-      <Filter>library code</Filter>
+      <Filter>Executor Facades</Filter>
     </ClCompile>
     <ClCompile Include="TestComputeShaderSort11.hlsl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TestGlslRayTracer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ray_tracer.glsl">
+      <Filter>GLSL</Filter>
+    </None>
+    <None Include="sample_shader.glsl">
+      <Filter>GLSL</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="..\ComputeShaderSort11\ComputeShaderSort11.hlsl">
+      <Filter>HLSL</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

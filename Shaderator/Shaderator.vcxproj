@@ -170,6 +170,7 @@
     <ClInclude Include="cpp_include.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="CpuTimeMeasurement.h" />
+    <ClInclude Include="glsl_include.h" />
     <ClInclude Include="hlsl_include.h" />
     <ClInclude Include="shaderator.h" />
     <ClInclude Include="shader_types.h" />

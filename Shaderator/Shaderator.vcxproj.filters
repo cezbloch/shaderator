@@ -53,6 +53,9 @@
     <ClInclude Include="CpuTimeMeasurement.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="glsl_include.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Texture2D.cpp">
