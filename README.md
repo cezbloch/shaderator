@@ -1,3 +1,5 @@
+[![Build Status](https://potrecs.visualstudio.com/_apis/public/build/definitions/76cd276e-183c-4a57-9255-523bf379583d/2/badge)]
+
 # What is this?
 Shaderator is a productivity library intended to speed up complex Compute Shader development. It also provides means to Unit Tests shader code offering protection against regressions.
 
