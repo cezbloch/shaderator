@@ -78,4 +78,5 @@ void CSSortExecutor::RunBitonicSortKernel(uint3 dispatchThreadId, uint3 groupId,
   SetNumThreads(uint3(1, 1, 1));
   BitonicSort(dispatchThreadId, groupId, groupThreadId, groupIndex);
   restore_buffers();
+  sss
 }
