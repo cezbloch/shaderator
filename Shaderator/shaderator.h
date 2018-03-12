@@ -1,4 +1,3 @@
-#pragma once
 #ifdef __cplusplus
 #include "cpp_include.h"
 #else
