@@ -182,7 +182,9 @@
     <ClInclude Include="ray_tracer.glsl">
       <FileType>Document</FileType>
     </ClInclude>
-    <None Include="sample_shader.glsl" />
+    <ClInclude Include="sample_shader.glsl">
+      <FileType>Document</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="..\ComputeShaderSort11\ComputeShaderSort11.hlsl">
