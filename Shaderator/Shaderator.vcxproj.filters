@@ -9,21 +9,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="glm">
-      <UniqueIdentifier>{c057e25e-602a-40ad-a0f1-00d731285ac7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="glm\detail">
-      <UniqueIdentifier>{7e8824e0-521b-4ede-9a15-43e868899260}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="glm\gtc">
-      <UniqueIdentifier>{c2107325-c74b-4041-8243-e8d761a62dab}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="glm\gtx">
-      <UniqueIdentifier>{4aca5046-e540-4eea-82e4-f27ee2431a4c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="glm\simd">
-      <UniqueIdentifier>{4f3e3cd1-4680-410e-9482-520adf3cfb4f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Templates">
       <UniqueIdentifier>{fc54810c-1878-4e61-9578-0c0fd003ae9b}</UniqueIdentifier>
     </Filter>
