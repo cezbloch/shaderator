@@ -23,9 +23,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{32155BFF-385C-4460-A037-98F68F15E630}</ProjectGuid>
+    <ProjectGuid>{483EA638-4CE2-46B3-95DA-1BADEA983BB4}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>ComputeShaderUnitTests</RootNamespace>
+    <RootNamespace>GLSLTests</RootNamespace>
     <ProjectSubType>NativeUnitTestProject</ProjectSubType>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -166,19 +166,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\BitonicSort\CSSortExecutor.h" />
+    <ClCompile Include="TestGlslRayTracer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\BitonicSort\CSSortExecutor.cpp" />
-    <ClCompile Include="TestComputeShaderSort11.hlsl.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <FxCompile Include="..\BitonicSort\ComputeShaderSort11.hlsl">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-    </FxCompile>
+    <ClInclude Include="ray_tracer.glsl">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="sample_shader.glsl">
+      <FileType>Document</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Shaderator\Shaderator.vcxproj">

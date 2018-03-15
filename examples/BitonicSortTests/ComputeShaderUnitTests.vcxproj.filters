@@ -5,9 +5,6 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="GLSL">
-      <UniqueIdentifier>{95466458-0dc8-49ae-b028-ad5d9661d1e3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Executor">
       <UniqueIdentifier>{6c39cf7d-b524-430a-81aa-182ac559e363}</UniqueIdentifier>
     </Filter>
@@ -19,18 +16,9 @@
     <ClInclude Include="..\BitonicSort\CSSortExecutor.h">
       <Filter>Executor</Filter>
     </ClInclude>
-    <ClInclude Include="ray_tracer.glsl">
-      <Filter>GLSL</Filter>
-    </ClInclude>
-    <ClInclude Include="sample_shader.glsl">
-      <Filter>GLSL</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TestComputeShaderSort11.hlsl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TestGlslRayTracer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\BitonicSort\CSSortExecutor.cpp">
