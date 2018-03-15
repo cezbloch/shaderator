@@ -1,10 +1,13 @@
 #include "Texture2D.h"
 
 template<class T>
-inline Texture2D<T>::Texture2D(unsigned int _width, unsigned int _height) :
-  m_width(_width),
-  m_height(_height),
-  m_data(_width * _height, T(0))
+inline Texture2D<T>::Texture2D(uint2 size) :
+  m_size(size),
+  m_data(m_size.x * m_size.y, T(0))
+{}
+
+template<class T>
+inline Texture2D<T>::Texture2D(unsigned int _width, unsigned int _height) : Texture2D<T>(uint2(_width, _height))
 {}
 
 template<class T>
@@ -14,12 +17,22 @@ inline T& Texture2D<T>::operator [](uint2 coordinates) {
 
 template<class T>
 T& Texture2D<T>::Load(uint3 coordinates) {
-  T& element = m_data[coordinates.y * m_width + coordinates.x];
+  T& element = m_data[coordinates.y * m_size.x + coordinates.x];
   return element;
 }
 
 template<class T>
 const void* Texture2D<T>::data()
 {
-  return reinterpret_cast<byte*>(m_data.data());
+  return m_data.data();
 }
+
+template<class T>
+const uint2 Texture2D<T>::size()
+{
+  return m_size;
+}
+
+template class Texture2D<float4>;
+template class Texture2D<uint4>;
+template class Texture2D<int4>;
