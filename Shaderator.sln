@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ComputeShaderUnitTests", "e
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GLSLTests", "examples\GLSLTests\GLSLTests.vcxproj", "{483EA638-4CE2-46B3-95DA-1BADEA983BB4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "examples", "examples", "{9EF43AE3-914C-4137-9E5C-5E8F25EE95B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -78,6 +80,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D3D1110B-96D0-4629-88B8-122C0256058C} = {9EF43AE3-914C-4137-9E5C-5E8F25EE95B1}
+		{32155BFF-385C-4460-A037-98F68F15E630} = {9EF43AE3-914C-4137-9E5C-5E8F25EE95B1}
+		{483EA638-4CE2-46B3-95DA-1BADEA983BB4} = {9EF43AE3-914C-4137-9E5C-5E8F25EE95B1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4AC87BF1-50E2-4925-812E-EB80D7CB72D5}
