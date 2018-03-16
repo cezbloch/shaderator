@@ -8,10 +8,10 @@ Due to the nature of GPUs shaders are hard to debug. Back in the day developer w
 
 # Getting started with debugging
 
-1. Open ComputeShaderSort11\ComputeShaderSort11_2017_Win10.sln in VS 2017
-2. Build solution (better Debug to see more variables under debugger)
-3. In ComputeShaderSort11 project properties -> Debugging -> working directory -> set to "..\Shaderator"
-4. Put breakpoint anywhere in ComputeShaderSort11.hlsl shader file
+1. Open Shaderator.sln in VS 2017
+2. Build solution (better choose Debug configuration to see more variables under debugger)
+3. Set ComputeShaderSort11 in examples folder as startup project (right click on the project in Visual Studio and select "Set as StartUp Project")
+4. Put breakpoint anywhere in ComputeShaderSort11.hlsl shader file 
 5. Press F5 to Debug
 
 ![](http://oi65.tinypic.com/358dwm1.jpg)
@@ -21,11 +21,13 @@ CPU shader is obviously very slow. The intention is to provide tools for faster 
 
 ![](http://oi67.tinypic.com/1zp6rvc.jpg)
 
+If you have Visual Assist X installed debugging experience may be reduced.
+
 # Getting started with Unit Tests
 
-1. Open ComputeShaderSort11\ComputeShaderSort11_2017_Win10.sln in VS 2017
-2. Build solution
-3. Set processor architecture for Unit Tests. In VS menu go to "Test -> Test Settings -> Default Processor Architecture" and select the platform for which you have built the solution (X86 or X640.
+1. Open Shaderator.sln in VS 2017
+2. Build solution 
+3. Set processor architecture for Unit Tests. In VS menu go to "Test -> Test Settings -> Default Processor Architecture" and select the platform for which you have built the solution (X86 or X64).
 4. Open Test Explorer. In VS menu go to "Test -> Windows -> Test Explorer"
 5. In Test Explorer right click on the Unit Test found and press "Run Selected Tests" or "Debug Selected Tests"
 
@@ -35,7 +37,7 @@ CPU shader is obviously very slow. The intention is to provide tools for faster 
 * Visual Studio 2017
 
 # Will this work with any shader?
-No, this is just a prototype - a proof of concept, however it should work with many shaders. If there is interest, support for more HLSL language features will be added.
+Not yet, the project is in it's early phase, however it should work with many shaders. If there is interest, support for more HLSL language features will be added.
 At the moment matrices are not supported yet.
 
 # Problems or feedback
