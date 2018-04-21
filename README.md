@@ -1,9 +1,9 @@
 [![Build Status](https://potrecs.visualstudio.com/_apis/public/build/definitions/76cd276e-183c-4a57-9255-523bf379583d/2/badge)](https://potrecs.visualstudio.com/Shaderator/_build/index?definitionId=2)
 
 # What is this?
-Shaderator is a productivity library intended to speed up complex Compute Shader development. It also provides means to Unit Tests shader code offering protection against regressions.
+Shaderator is a productivity library intended to speed up complex Compute Shader development. It also provides means to Unit Tests shader code offering protection against regressions. Click on the image below to see the Lighting Talk from ACCU 2018 Conference.
 
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/WUDPdin83A0/0.jpg)](http://www.youtube.com/watch?v=WUDPdin83A0)
+[![Shaderator on ACCU 2018 Link](http://img.youtube.com/vi/WUDPdin83A0/0.jpg)](http://www.youtube.com/watch?v=WUDPdin83A0)
 
 # What problem does it solve?
 Due to the nature of GPUs shaders are hard to debug. Back in the day developer wrote one, executed a batch and hoped for the best that the result is correct. Kernel function is usually executed hundreds of thousand times writing data to output buffer which can only be looked up when the Dispatch finished. This tool compiles .hlsl shader code to C++ and enables developer to leverage full Visual Studio debugging functionality to quickly find problems in the code.
