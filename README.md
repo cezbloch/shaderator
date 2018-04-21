@@ -3,6 +3,8 @@
 # What is this?
 Shaderator is a productivity library intended to speed up complex Compute Shader development. It also provides means to Unit Tests shader code offering protection against regressions.
 
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/WUDPdin83A0/0.jpg)](http://www.youtube.com/watch?v=WUDPdin83A0)
+
 # What problem does it solve?
 Due to the nature of GPUs shaders are hard to debug. Back in the day developer wrote one, executed a batch and hoped for the best that the result is correct. Kernel function is usually executed hundreds of thousand times writing data to output buffer which can only be looked up when the Dispatch finished. This tool compiles .hlsl shader code to C++ and enables developer to leverage full Visual Studio debugging functionality to quickly find problems in the code.
 
