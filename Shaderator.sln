@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GLSLTests", "examples\GLSLT
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "examples", "examples", "{9EF43AE3-914C-4137-9E5C-5E8F25EE95B1}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ShaderatorUnitTests", "ShaderatorUnitTests\ShaderatorUnitTests.vcxproj", "{A1DB94A6-C315-4666-9805-2F60D7893E7C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -77,6 +79,18 @@ Global
 		{483EA638-4CE2-46B3-95DA-1BADEA983BB4}.Release|x64.Build.0 = Release|x64
 		{483EA638-4CE2-46B3-95DA-1BADEA983BB4}.Release|x86.ActiveCfg = Release|Win32
 		{483EA638-4CE2-46B3-95DA-1BADEA983BB4}.Release|x86.Build.0 = Release|Win32
+		{A1DB94A6-C315-4666-9805-2F60D7893E7C}.Debug|x64.ActiveCfg = Debug|x64
+		{A1DB94A6-C315-4666-9805-2F60D7893E7C}.Debug|x64.Build.0 = Debug|x64
+		{A1DB94A6-C315-4666-9805-2F60D7893E7C}.Debug|x86.ActiveCfg = Debug|Win32
+		{A1DB94A6-C315-4666-9805-2F60D7893E7C}.Debug|x86.Build.0 = Debug|Win32
+		{A1DB94A6-C315-4666-9805-2F60D7893E7C}.Profile|x64.ActiveCfg = Release|x64
+		{A1DB94A6-C315-4666-9805-2F60D7893E7C}.Profile|x64.Build.0 = Release|x64
+		{A1DB94A6-C315-4666-9805-2F60D7893E7C}.Profile|x86.ActiveCfg = Release|Win32
+		{A1DB94A6-C315-4666-9805-2F60D7893E7C}.Profile|x86.Build.0 = Release|Win32
+		{A1DB94A6-C315-4666-9805-2F60D7893E7C}.Release|x64.ActiveCfg = Release|x64
+		{A1DB94A6-C315-4666-9805-2F60D7893E7C}.Release|x64.Build.0 = Release|x64
+		{A1DB94A6-C315-4666-9805-2F60D7893E7C}.Release|x86.ActiveCfg = Release|Win32
+		{A1DB94A6-C315-4666-9805-2F60D7893E7C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
