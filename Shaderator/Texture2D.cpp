@@ -7,7 +7,7 @@ inline Texture2D<T>::Texture2D(uint2 size) :
 {}
 
 template<class T>
-inline Texture2D<T>::Texture2D(unsigned int _width, unsigned int _height) : Texture2D<T>(uint2(_width, _height))
+inline Texture2D<T>::Texture2D(unsigned int width, unsigned int height) : Texture2D<T>(uint2(width, height))
 {}
 
 template<class T>
