@@ -173,14 +173,6 @@
     <ClCompile Include="TestComputeShaderSort11.hlsl.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="..\BitonicSort\ComputeShaderSort11.hlsl">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-    </FxCompile>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\Shaderator\Shaderator.vcxproj">
       <Project>{979d44bd-659c-4cf5-a974-51121bb3d14f}</Project>
     </ProjectReference>

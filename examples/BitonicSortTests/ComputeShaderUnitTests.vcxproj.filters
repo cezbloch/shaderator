@@ -25,9 +25,4 @@
       <Filter>Executor</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <FxCompile Include="..\BitonicSort\ComputeShaderSort11.hlsl">
-      <Filter>HLSL</Filter>
-    </FxCompile>
-  </ItemGroup>
 </Project>
