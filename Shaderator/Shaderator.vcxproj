@@ -175,6 +175,7 @@
     <ClInclude Include="shaderator.h" />
     <ClInclude Include="shader_types.h" />
     <ClInclude Include="Texture2D.h" />
+    <ClInclude Include="ThreadPool.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cpp_functions.cpp" />
