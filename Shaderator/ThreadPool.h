@@ -5,6 +5,8 @@
 #include <thread>
 #include <queue>
 #include <mutex>
+#include <condition_variable>
+#include <atomic>
 
 using ShaderKernel = std::function<void(uint3, uint3, uint3, uint)>;
 
@@ -15,8 +17,6 @@ struct KernelArguments
   uint3 groupThreadID;
   uint threadIndex;
 };
-
-void someWork() {}
 
 class ThreadPool
 {
@@ -33,25 +33,27 @@ public:
   
   ~ThreadPool()
   {
-    // wait for the queue to be empty - change this to wait for 
-    while (!m_argumentsQueue.empty()) {
-
+    while (!m_argumentsQueue.empty()) 
+    {
+      std::this_thread::yield();
     }
 
-
-    // instead of exit I can notify all threads of exiting
     m_exit = true;
+
     for (auto& thread : m_threads)
     {
-      thread.join();
+      if (thread.joinable())
+      {
+        thread.join();
+      }
     }
   }
   
   void addTask(KernelArguments task) 
   {
-    std::lock_guard<std::mutex> lock(m_queueLock);
+    std::lock_guard<std::mutex> lock(m_queueMutex);
     m_argumentsQueue.emplace(task);
-    // here I can notify the worker thread that the state of queue has changed
+    m_taskAvailable.notify_one();
   }
 
 private:
@@ -60,22 +62,24 @@ private:
   {
     while (!m_exit) 
     {
-      // here I can wait for notification from the parent thread
-      std::lock_guard<std::mutex> lock(m_queueLock);
+      std::unique_lock<std::mutex> lock(m_queueMutex);
+      m_taskAvailable.wait(lock, [&] { return !m_argumentsQueue.empty() || m_exit; });
       if (!m_argumentsQueue.empty())
       {
         auto shaderArguments = m_argumentsQueue.front();
         m_argumentsQueue.pop();
-        // notify  that element has been removed or that queue is empty so that destructor does not have to poll
+        lock.unlock();
         m_shader(shaderArguments.dispatchThreadID, shaderArguments.groupID, shaderArguments.groupThreadID, shaderArguments.threadIndex);
       }
     }
   }
 
   unsigned int m_threadsAmount = 0;
-  bool m_exit = false;
+  std::atomic_bool m_exit = false;
   ShaderKernel m_shader;
   std::vector<std::thread> m_threads;
-  std::mutex m_queueLock;
+  std::mutex m_queueMutex;
+  std::condition_variable m_queueEmpty;
+  std::condition_variable m_taskAvailable;
   std::queue<KernelArguments> m_argumentsQueue;
 };
