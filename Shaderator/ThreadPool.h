@@ -33,12 +33,13 @@ public:
   
   ~ThreadPool()
   {
-    while (!m_argumentsQueue.empty()) 
+    while (!m_argumentsQueue.empty())
     {
       std::this_thread::yield();
     }
 
     m_exit = true;
+    m_taskAvailable.notify_all();
 
     for (auto& thread : m_threads)
     {
