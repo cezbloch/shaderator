@@ -4,16 +4,16 @@
 #include <thread>
 #include <vector>
 
-class join_threads
+class thread_joiner
 {
   std::vector<std::thread>& threads;
 
 public:
-  explicit join_threads(std::vector<std::thread>& threads_) :
+  explicit thread_joiner(std::vector<std::thread>& threads_) :
     threads(threads_)
   {}
 
-  ~join_threads()
+  ~thread_joiner()
   {
     for (unsigned long i = 0; i<threads.size(); ++i)
     {

@@ -172,11 +172,11 @@
     <ClInclude Include="CpuTimeMeasurement.h" />
     <ClInclude Include="glsl_include.h" />
     <ClInclude Include="hlsl_include.h" />
-    <ClInclude Include="join_threads.h" />
+    <ClInclude Include="thread_joiner.h" />
     <ClInclude Include="shaderator.h" />
     <ClInclude Include="shader_types.h" />
     <ClInclude Include="Texture2D.h" />
-    <ClInclude Include="ThreadPool.h" />
+    <ClInclude Include="thread_pool.h" />
     <ClInclude Include="threadsafe_queue.h" />
   </ItemGroup>
   <ItemGroup>
