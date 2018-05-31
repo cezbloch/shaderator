@@ -15,6 +15,53 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "examples", "examples", "{9E
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ShaderatorUnitTests", "ShaderatorUnitTests\ShaderatorUnitTests.vcxproj", "{A1DB94A6-C315-4666-9805-2F60D7893E7C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "external", "external", "{E283841D-901F-4818-BBDD-9D8D131CA87F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "gtest", "gtest", "{B9069897-A40C-44EF-B492-A4A57F02A66E}"
+	ProjectSection(SolutionItems) = preProject
+		external\gtest\gtest-death-test.h = external\gtest\gtest-death-test.h
+		external\gtest\gtest-message.h = external\gtest\gtest-message.h
+		external\gtest\gtest-param-test.h = external\gtest\gtest-param-test.h
+		external\gtest\gtest-param-test.h.pump = external\gtest\gtest-param-test.h.pump
+		external\gtest\gtest-printers.h = external\gtest\gtest-printers.h
+		external\gtest\gtest-spi.h = external\gtest\gtest-spi.h
+		external\gtest\gtest-test-part.h = external\gtest\gtest-test-part.h
+		external\gtest\gtest-typed-test.h = external\gtest\gtest-typed-test.h
+		external\gtest\gtest.h = external\gtest\gtest.h
+		external\gtest\gtest_pred_impl.h = external\gtest\gtest_pred_impl.h
+		external\gtest\gtest_prod.h = external\gtest\gtest_prod.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "internal", "internal", "{2ED28B74-D728-4617-9D13-D3282AC05E1D}"
+	ProjectSection(SolutionItems) = preProject
+		external\gtest\internal\gtest-death-test-internal.h = external\gtest\internal\gtest-death-test-internal.h
+		external\gtest\internal\gtest-filepath.h = external\gtest\internal\gtest-filepath.h
+		external\gtest\internal\gtest-internal.h = external\gtest\internal\gtest-internal.h
+		external\gtest\internal\gtest-linked_ptr.h = external\gtest\internal\gtest-linked_ptr.h
+		external\gtest\internal\gtest-param-util-generated.h = external\gtest\internal\gtest-param-util-generated.h
+		external\gtest\internal\gtest-param-util-generated.h.pump = external\gtest\internal\gtest-param-util-generated.h.pump
+		external\gtest\internal\gtest-param-util.h = external\gtest\internal\gtest-param-util.h
+		external\gtest\internal\gtest-port-arch.h = external\gtest\internal\gtest-port-arch.h
+		external\gtest\internal\gtest-port.h = external\gtest\internal\gtest-port.h
+		external\gtest\internal\gtest-string.h = external\gtest\internal\gtest-string.h
+		external\gtest\internal\gtest-tuple.h = external\gtest\internal\gtest-tuple.h
+		external\gtest\internal\gtest-tuple.h.pump = external\gtest\internal\gtest-tuple.h.pump
+		external\gtest\internal\gtest-type-util.h = external\gtest\internal\gtest-type-util.h
+		external\gtest\internal\gtest-type-util.h.pump = external\gtest\internal\gtest-type-util.h.pump
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "custom", "custom", "{7F199E13-EB62-4E49-B645-9C7B27A353A2}"
+	ProjectSection(SolutionItems) = preProject
+		external\gtest\internal\custom\gtest-port.h = external\gtest\internal\custom\gtest-port.h
+		external\gtest\internal\custom\gtest-printers.h = external\gtest\internal\custom\gtest-printers.h
+		external\gtest\internal\custom\gtest.h = external\gtest\internal\custom\gtest.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "glm", "glm", "{1B60DFE3-551E-4804-A683-2151D125006B}"
+	ProjectSection(SolutionItems) = preProject
+		glm\vec3.hpp = glm\vec3.hpp
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -99,6 +146,10 @@ Global
 		{D3D1110B-96D0-4629-88B8-122C0256058C} = {9EF43AE3-914C-4137-9E5C-5E8F25EE95B1}
 		{32155BFF-385C-4460-A037-98F68F15E630} = {9EF43AE3-914C-4137-9E5C-5E8F25EE95B1}
 		{483EA638-4CE2-46B3-95DA-1BADEA983BB4} = {9EF43AE3-914C-4137-9E5C-5E8F25EE95B1}
+		{B9069897-A40C-44EF-B492-A4A57F02A66E} = {E283841D-901F-4818-BBDD-9D8D131CA87F}
+		{2ED28B74-D728-4617-9D13-D3282AC05E1D} = {B9069897-A40C-44EF-B492-A4A57F02A66E}
+		{7F199E13-EB62-4E49-B645-9C7B27A353A2} = {2ED28B74-D728-4617-9D13-D3282AC05E1D}
+		{1B60DFE3-551E-4804-A683-2151D125006B} = {E283841D-901F-4818-BBDD-9D8D131CA87F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4AC87BF1-50E2-4925-812E-EB80D7CB72D5}
