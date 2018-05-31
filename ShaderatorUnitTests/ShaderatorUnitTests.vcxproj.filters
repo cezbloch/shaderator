@@ -38,7 +38,7 @@
     <ClCompile Include="TestThreadPool.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ThreadsafeQueueTests.cpp">
+    <ClCompile Include="threadsafe_queue_tests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

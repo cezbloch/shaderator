@@ -21,7 +21,7 @@ namespace ShaderatorUnitTests
       Assert::IsTrue(queue.empty());
     }
 
-    TEST_METHOD(succeds_popping_a_value)
+    TEST_METHOD(succeeds_pop_a_value)
     {
       threadsafe_queue<int> queue;
       queue.push(1);

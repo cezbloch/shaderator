@@ -165,7 +165,7 @@
     </ClCompile>
     <ClCompile Include="BarrierTests.cpp" />
     <ClCompile Include="TestThreadPool.cpp" />
-    <ClCompile Include="ThreadsafeQueueTests.cpp" />
+    <ClCompile Include="threadsafe_queue_tests.cpp" />
     <ClCompile Include="vectorOperatorsTests.cpp" />
   </ItemGroup>
   <ItemGroup>

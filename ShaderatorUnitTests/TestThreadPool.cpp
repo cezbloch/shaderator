@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
 
-#include "ThreadPool.h"
+#include "thread_pool.h"
 #include <vector>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -15,11 +15,11 @@ void SampleKernel(uint3, uint3, uint3, uint val)
 
 namespace ShaderatorUnitTests
 {
-  TEST_CLASS(ThreadPoolTests)
+  TEST_CLASS(thread_pool_tests)
   {
   public:
 
-    void addTask(ThreadPool& pool, uint val)
+    void addTask(thread_pool& pool, uint val)
     {
       KernelArguments args;
       args.threadIndex = val;
@@ -29,7 +29,7 @@ namespace ShaderatorUnitTests
     TEST_METHOD(TestThreadPool)
     {
       {
-        ThreadPool pool(SampleKernel, 2);
+        thread_pool pool(SampleKernel, 2);
         addTask(pool, 1);
         addTask(pool, 2);
         addTask(pool, 3);
