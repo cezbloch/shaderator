@@ -2,10 +2,11 @@
 #include "ComputeShaderSort11.hlsl"
 #include "Engine.h"
 
+
 void ClearGroupShareds()
 {
-  memset(&shared_data, 0, sizeof(shared_data));
-  memset(&transpose_shared_data, 0, sizeof(transpose_shared_data));
+  memset(&shared_data, 0, sizeof shared_data);
+  memset(&transpose_shared_data, 0, sizeof transpose_shared_data);
 }
 
 
