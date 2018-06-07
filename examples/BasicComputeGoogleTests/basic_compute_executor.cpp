@@ -1,16 +1,8 @@
+#include "pch.h"
+
 #include "basic_compute_executor.h"
-#include "BasicCompute11_StructuredBuffer.hlsl"
+#include "basic_compute_structured_buffer.hlsl"
 #include "Engine.h"
-
-template<class T>
-std::vector<T> CreateBuffer(unsigned int num_elements)
-{
-  std::vector<T> buffer(num_elements);
-  // initialize to 0xFF so that logic errors pop up quickly
-  memset(&buffer[0], 0xFF, num_elements * sizeof T);
-
-  return buffer;
-}
 
 
 void ClearGroupShareds()
@@ -21,26 +13,32 @@ void ClearGroupShareds()
 void BasicComputeExecutor::SetBuffer0(const StructuredBuffer<BufType>& buffer)
 {
   Buffer0 = buffer;
+  Buffer0.reset_access_counts();
 }
 
 void BasicComputeExecutor::SetBuffer1(const StructuredBuffer<BufType>& buffer)
 {
   Buffer1 = buffer;
+  Buffer1.reset_access_counts();
 }
 
 void BasicComputeExecutor::CreateOutput(uint size)
 {
-  BufferOut = CreateBuffer<BufType>(size);
+  BufferOut = RWStructuredBuffer<BufType>(size);
+}
+
+void BasicComputeExecutor::SetNumThreads(uint3 num_threads)
+{
+  num_threads_ = num_threads;
 }
 
 void BasicComputeExecutor::Dispatch(unsigned int x, unsigned int y, unsigned int z)
 {
-  uint3 NumThreads(1, 1, 1);
-  Shaderator::Engine engine(CSMain, ClearGroupShareds, NumThreads);
+  Shaderator::Engine engine(CSMain, ClearGroupShareds, num_threads_);
   engine.Dispatch(x, y, z);
 }
 
-const std::vector<BufType>& BasicComputeExecutor::GetBufferOut()
+const RWStructuredBuffer<BufType>& BasicComputeExecutor::GetBufferOut()
 {
   return BufferOut;
 }
