@@ -1,6 +1,7 @@
 #include "Engine.h"
 #include "cpp_include.h"
 #include <thread>
+#include <vector>
 
 Shaderator::Engine::Engine(ShaderKernel main, ClearGroupSharedVariables clear_function, uint3 numThreads) :
     m_main(main)

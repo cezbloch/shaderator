@@ -1,9 +1,10 @@
 #include "Texture2D.h"
 
 template<class T>
-inline Texture2D<T>::Texture2D(uint2 size) :
-  m_size(size),
-  m_data(m_size.x * m_size.y, T(0))
+inline Texture2D<T>::Texture2D(uint2 size)
+  : size_(size)
+  , data_(size_.x * size_.y, T(0))
+  , access_counts_(size_.x * size_.y, 0)
 {}
 
 template<class T>
@@ -17,20 +18,20 @@ inline T& Texture2D<T>::operator [](uint2 coordinates) {
 
 template<class T>
 T& Texture2D<T>::Load(uint3 coordinates) {
-  T& element = m_data[coordinates.y * m_size.x + coordinates.x];
-  return element;
+  auto index = coordinates.y * size_.x + coordinates.x;
+  return at(index);
 }
 
 template<class T>
 const void* Texture2D<T>::data()
 {
-  return m_data.data();
+  return data_.data();
 }
 
 template<class T>
 const uint2 Texture2D<T>::size()
 {
-  return m_size;
+  return size_;
 }
 
 template class Texture2D<float4>;

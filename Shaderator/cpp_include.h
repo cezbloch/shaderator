@@ -3,6 +3,16 @@
 #ifdef __cplusplus
 
 #include "shader_types.h"
+#include "Texture2D.h"
+
+#define groupshared
+#ifdef TRACE_ACCESS
+#define RWStructuredBuffer Texture2D
+#define StructuredBuffer Texture2D
+#else
+#define RWStructuredBuffer std::vector
+#define StructuredBuffer std::vector
+#endif
 
 // CBuffer
 #define SHADERETOR_CBUFFER(name, constant_buffer_number)

@@ -2,14 +2,9 @@
 
 #define GLM_FORCE_SWIZZLE // this is to enable vector swizzling ie. some_vector.rgb
 #include <glm/glm.hpp>
-#include <glm/vec2.hpp> // glm::vec3
-#include <glm/vec3.hpp> // glm::vec3
-#include <glm/vec4.hpp> // glm::vec4
-#include <vector>
-
-#define groupshared
-#define RWStructuredBuffer std::vector
-#define StructuredBuffer std::vector
+#include <glm/vec2.hpp>
+#include <glm/vec3.hpp>
+#include <glm/vec4.hpp>
 
 typedef glm::bvec2 bool2;
 typedef glm::bvec3 bool3;
