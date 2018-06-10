@@ -32,9 +32,6 @@
     <ClCompile Include="BarrierTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EngineTests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="TestThreadPool.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
