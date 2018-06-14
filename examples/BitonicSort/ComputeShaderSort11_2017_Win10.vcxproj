@@ -429,7 +429,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ComputeShaderSort11.cpp" />
-    <ClCompile Include="CSSortExecutor.cpp" />
+    <ClCompile Include="bitonic_sort_executor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="ComputeShaderSort11.hlsl">
@@ -467,7 +467,7 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CSSortExecutor.h" />
+    <ClInclude Include="bitonic_sort_executor.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Shaderator\Shaderator.vcxproj">

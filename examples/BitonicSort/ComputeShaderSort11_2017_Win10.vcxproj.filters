@@ -8,14 +8,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ComputeShaderSort11.cpp" />
-    <ClCompile Include="CSSortExecutor.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="CSSortExecutor.h" />
+    <ClCompile Include="bitonic_sort_executor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="ComputeShaderSort11.hlsl">
       <Filter>Shaders</Filter>
     </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bitonic_sort_executor.h" />
   </ItemGroup>
 </Project>

@@ -16,7 +16,7 @@
 #include <vector>
 #include <algorithm>
 #include <random>
-#include "CSSortExecutor.h"
+#include "bitonic_sort_executor.h"
 
 #if D3D_COMPILER_VERSION < 46
 #include <d3dx11.h>
