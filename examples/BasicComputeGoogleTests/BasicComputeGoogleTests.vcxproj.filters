@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <FxCompile Include="basic_compute_structured_buffer.hlsl">
+      <Filter>shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="basic_compute_byte_address_buffer.hlsl">
+      <Filter>shaders</Filter>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="test.cpp" />
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="basic_compute_executor.cpp">
+      <Filter>executor</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="shared_types.h" />
+    <ClInclude Include="basic_compute_executor.h">
+      <Filter>executor</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="executor">
+      <UniqueIdentifier>{7a1cef35-4ffe-4b28-aa44-9cbd07a6ecd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{90f3b3f8-480f-4aab-be19-3114dfda2804}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
