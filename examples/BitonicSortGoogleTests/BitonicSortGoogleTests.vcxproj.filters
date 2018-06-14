@@ -1,14 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="test.cpp" />
-    <ClCompile Include="pch.cpp" />
     <ClCompile Include="..\BitonicSort\bitonic_sort_executor.cpp">
       <Filter>executor</Filter>
     </ClCompile>
+    <ClCompile Include="bitonic_sort_tests.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pch.h" />
     <ClInclude Include="..\BitonicSort\bitonic_sort_executor.h">
       <Filter>executor</Filter>
     </ClInclude>
