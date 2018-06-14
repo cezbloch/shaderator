@@ -8,7 +8,7 @@
 
 #include "shaderator.h"
 
-#define BITONIC_BLOCK_SIZE 512
+#define BITONIC_BLOCK_SIZE 16//512
 
 #define TRANSPOSE_BLOCK_SIZE 16
 
