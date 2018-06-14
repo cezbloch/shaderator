@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="test.cpp" />
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="..\BitonicSort\bitonic_sort_executor.cpp">
+      <Filter>executor</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="..\BitonicSort\bitonic_sort_executor.h">
+      <Filter>executor</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="executor">
+      <UniqueIdentifier>{553ad4db-897d-46fb-a0b9-312e0e4d8268}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
