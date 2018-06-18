@@ -9,11 +9,11 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="test.cpp" />
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="basic_compute_executor.cpp">
       <Filter>executor</Filter>
     </ClCompile>
+    <ClCompile Include="basic_compute_tests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
