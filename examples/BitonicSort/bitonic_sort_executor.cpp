@@ -10,22 +10,22 @@ void ClearGroupShareds()
 }
 
 
-void CSSortExecutor::SetShaderResources0(std::vector<unsigned int>& buffer)
+void CSSortExecutor::SetShaderResources0(StructuredBuffer<unsigned int>& buffer)
 {
   m_shader_resource_0 = &buffer;
   Input.swap(buffer);
 }
 
-void CSSortExecutor::SetUnorderedAccessViews0(std::vector<unsigned int>& buffer)
+void CSSortExecutor::SetUnorderedAccessViews0(RWStructuredBuffer<unsigned int>& buffer)
 {
   m_uav_0 = &buffer;
   Data.swap(buffer);
 }
 
-void CSSortExecutor::UpdateSubresource(std::vector<unsigned int>& buffer, const void *pSrcData, unsigned int size)
+void CSSortExecutor::UpdateSubresource(StructuredBuffer<unsigned int>& buffer, const void *pSrcData, unsigned int size)
 {
   const unsigned int* srcData = static_cast<const unsigned int*>(pSrcData);
-  assert(size <= buffer.size());
+  assert(size <= buffer.length());
   memcpy(&buffer[0], srcData, size * sizeof(unsigned int));
 }
 
@@ -64,9 +64,9 @@ void CSSortExecutor::restore_buffers()
   }
 }
 
-std::vector<unsigned int> CreateBuffer(unsigned int num_elements)
+StructuredBuffer<uint> CreateBuffer(unsigned int num_elements)
 {
-  std::vector<unsigned int> buffer(num_elements);
+  StructuredBuffer<uint> buffer(num_elements);
   memset(&buffer[0], 0, num_elements* sizeof(unsigned int));
 
   return buffer;
