@@ -175,7 +175,7 @@
     <ClInclude Include="thread_joiner.h" />
     <ClInclude Include="shaderator.h" />
     <ClInclude Include="shader_types.h" />
-    <ClInclude Include="Texture2D.h" />
+    <ClInclude Include="texture_2d.h" />
     <ClInclude Include="thread_pool.h" />
     <ClInclude Include="threadsafe_queue.h" />
   </ItemGroup>
@@ -183,7 +183,7 @@
     <ClCompile Include="cpp_functions.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="CpuTimeMeasurement.cpp" />
-    <ClCompile Include="Texture2D.cpp" />
+    <ClCompile Include="texture_2d.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

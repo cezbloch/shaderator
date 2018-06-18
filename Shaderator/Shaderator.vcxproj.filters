@@ -29,9 +29,6 @@
     <ClInclude Include="shaderator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Texture2D.h">
-      <Filter>Templates</Filter>
-    </ClInclude>
     <ClInclude Include="shader_types.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -50,6 +47,9 @@
     <ClInclude Include="thread_joiner.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="texture_2d.h">
+      <Filter>Templates</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cpp_functions.cpp">
@@ -61,7 +61,7 @@
     <ClCompile Include="Engine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Texture2D.cpp">
+    <ClCompile Include="texture_2d.cpp">
       <Filter>Templates</Filter>
     </ClCompile>
   </ItemGroup>

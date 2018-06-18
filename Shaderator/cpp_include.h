@@ -3,7 +3,7 @@
 #ifdef __cplusplus
 
 #include "shader_types.h"
-#include "Texture2D.h"
+#include "texture_2d.h"
 
 #define groupshared
 #ifdef TRACE_ACCESS
