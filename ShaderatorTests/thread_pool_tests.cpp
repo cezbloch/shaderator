@@ -19,7 +19,7 @@ void addTask(thread_pool& pool, uint val)
   pool.addTask(args);
 }
 
-TEST(ThreadPool, 32_treads_are_properly_blocked)
+TEST(ThreadPool, finishes_all_tasks)
 {
   {
     thread_pool pool(SampleKernel, 2);
