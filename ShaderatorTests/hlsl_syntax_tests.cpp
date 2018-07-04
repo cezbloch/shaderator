@@ -2,6 +2,17 @@
 
 #include "gtest/gtest.h"
 
+#include "shaderator.h"
+#include <vector>
+
+
+TEST(HlslSyntaxTests, less_than_operator_compiless)
+{
+  int4 srcLeft{ 1, 1, 1, 1 }, srcRight{ 2, 2, 2, 2 }, mask{ 0, 0, 0, 0 };
+
+  mask = srcLeft < srcRight;
+}
+
 // Below are some tests used for partial work on BC6HBC7EncoderCS project from directx samples
 
 //TEST_METHOD(TestAssignmentUint4)
