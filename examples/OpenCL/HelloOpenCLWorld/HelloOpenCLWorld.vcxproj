@@ -23,7 +23,7 @@
     <ProjectGuid>{8AF1FE74-19BE-49B8-834A-8E184742DA0F}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>HelloOpenCLWorld</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>$(WindowsTargetPlatformVersion_10)</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
