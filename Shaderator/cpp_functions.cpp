@@ -79,6 +79,16 @@ uint3 operator&(uint3 v1, uint3 v2)
   return result;
 }
 
+int4 operator<(int4 v1, int4 v2)
+{
+  int4 result;
+  result.x = v1.x < v2.x;
+  result.y = v1.y < v2.y;
+  result.z = v1.z < v2.z;
+  result.w = v1.w < v2.w;
+  return result;
+}
+
 //template<typename T>
 //uint asuint(T t)
 //{
