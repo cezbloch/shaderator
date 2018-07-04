@@ -23,3 +23,4 @@
 /ShaderatorUnitTests/x64/Debug
 /packages
 /.idea
+/examples/OpenCL/IntelBitonicSort/BitonicSort/.vs/BitonicSort_2015/v15
