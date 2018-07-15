@@ -38,16 +38,19 @@
     <ClInclude Include="glsl_include.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="threadsafe_queue.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thread_pool.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="thread_joiner.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="texture_2d.h">
+      <Filter>Templates</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCLEngine.h">
+      <Filter>Templates</Filter>
+    </ClInclude>
+    <ClInclude Include="threadsafe_queue.h">
+      <Filter>Templates</Filter>
+    </ClInclude>
+    <ClInclude Include="thread_pool.h">
       <Filter>Templates</Filter>
     </ClInclude>
   </ItemGroup>

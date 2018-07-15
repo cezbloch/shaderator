@@ -172,6 +172,7 @@
     <ClInclude Include="CpuTimeMeasurement.h" />
     <ClInclude Include="glsl_include.h" />
     <ClInclude Include="hlsl_include.h" />
+    <ClInclude Include="OpenCLEngine.h" />
     <ClInclude Include="thread_joiner.h" />
     <ClInclude Include="shaderator.h" />
     <ClInclude Include="shader_types.h" />
