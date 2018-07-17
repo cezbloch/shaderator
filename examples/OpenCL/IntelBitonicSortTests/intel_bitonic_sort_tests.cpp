@@ -5,8 +5,6 @@
 #include <random>
 #include <vector>
 
-#define SAMPLE_CHECK_ERRORS
-
 class Fixture
 {
 public:
@@ -27,28 +25,22 @@ public:
     int stage;
     int passOfStage;
 
-    for (temp = arraySize; temp > 2; temp >>= 1)
-    {
+    for (temp = arraySize; temp > 2; temp >>= 1) {
       numStages++;
     }
 
-    for (stage = 0; stage < numStages; stage++)
-    {
-      //err = clSetKernelArg(executable.kernel, 1, sizeof(uint), (void *)&stage);
-
-      for (passOfStage = stage; passOfStage >= 0; passOfStage--)
-      {
-        //err = clSetKernelArg(executable.kernel, 2, sizeof(uint), (void *)&passOfStage);
-
+    for (stage = 0; stage < numStages; stage++) {
+      for (passOfStage = stage; passOfStage >= 0; passOfStage--) {
         // set work-item dimensions
         size_t gsz = arraySize / (2 * 4);
         size_t global_work_size[1] = { passOfStage ? gsz : gsz << 1 };    //number of quad items in input array
 
-        //err = clEnqueueNDRangeKernel(oclobjects.queue, executable.kernel, 1, NULL, global_work_size, NULL, 0, NULL, NULL);
         executor.Dispatch(global_work_size[0], 1, 1, reinterpret_cast<int4*>(data.data()), stage, passOfStage, sortAscending);
       }
     }
   }
+
+  void verify() {}
 
   uint arraySize;
   std::vector<int> data;
@@ -60,4 +52,6 @@ TEST(BasicComputeGoogleTests, test_can_execute_open_cl_bitonic_sort)
   Fixture fixture;
 
   fixture.ExecuteSortKernel(0);
+
+  fixture.verify();
 }

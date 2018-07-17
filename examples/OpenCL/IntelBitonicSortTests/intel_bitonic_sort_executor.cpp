@@ -1,14 +1,8 @@
 #include "pch.h"
 
 #include "intel_bitonic_sort_executor.h"
-
-#define __global
-#define __kernel
-
-size_t get_global_id(size_t i) { return i; }
-
-#include "BitonicSort.cl"
 #include "OpenCLEngine.h"
+#include "BitonicSort.cl"
 
 void ClearGroupShareds(){};
 
