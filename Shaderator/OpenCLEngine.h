@@ -2,8 +2,8 @@
 
 #pragma once
 #include "shader_types.h"
+#include "opencl_include.h"
 #include <functional>
-#include "cpp_include.h"
 #include <thread>
 #include <vector>
 
@@ -50,8 +50,12 @@ namespace Shaderator { namespace OpenCL {
             uint3 groupThreadID(x, y, z);
             uint3 dispatchThreadID(groupID * m_numThreads + groupThreadID);
             uint threadIndex(m_numThreads.x * m_numThreads.y * z + m_numThreads.x * y + x);
-            groupThreads.push_back(std::thread(m_main, args...));
-            //groupThreads.push_back(std::thread(m_main, std::forward<Args...>(args...)));
+            auto kernel_thread = std::thread(m_main, args...);
+            {
+              std::lock_guard<std::mutex> lock(g_threadIdsMutex);
+              g_threadIds[kernel_thread.get_id()] = groupID.x;
+            }
+            groupThreads.push_back(std::move(kernel_thread));
           }
         }
       }
@@ -66,9 +70,3 @@ namespace Shaderator { namespace OpenCL {
     uint3 m_numThreads;
   };
 }}
-
-typedef std::function<void(uint3, uint3, uint3, uint)> ShaderKernel;
-typedef std::function<void(int4 *, const uint, const uint, const uint)> BitonicSortKernel;
-
-template class Shaderator::OpenCL::Engine<ShaderKernel>;
-template class Shaderator::OpenCL::Engine<BitonicSortKernel>;

@@ -53,6 +53,9 @@
     <ClInclude Include="thread_pool.h">
       <Filter>Templates</Filter>
     </ClInclude>
+    <ClInclude Include="opencl_include.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cpp_functions.cpp">
