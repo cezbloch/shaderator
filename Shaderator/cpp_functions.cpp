@@ -79,13 +79,31 @@ uint3 operator&(uint3 v1, uint3 v2)
   return result;
 }
 
+//int4 operator<(int4 v1, int4 v2)
+//{
+//  int4 result;
+//  result.x = v1.x < v2.x;
+//  result.y = v1.y < v2.y;
+//  result.z = v1.z < v2.z;
+//  result.w = v1.w < v2.w;
+//  return result;
+//}
+
+int compareInts(int x, int y)
+{
+  return (x < y) ? -1 : 0;
+}
+
+// From OpenCL 1.2 Specification:
+// "For vector types, the relational operators shall return 0 if the specified
+// relation is false and –1(i.e.all bits set) if the specified relation is true."
 int4 operator<(int4 v1, int4 v2)
 {
   int4 result;
-  result.x = v1.x < v2.x;
-  result.y = v1.y < v2.y;
-  result.z = v1.z < v2.z;
-  result.w = v1.w < v2.w;
+  result.x = compareInts(v1.x, v2.x);
+  result.y = compareInts(v1.y, v2.y);
+  result.z = compareInts(v1.z, v2.z);
+  result.w = compareInts(v1.w, v2.w);
   return result;
 }
 

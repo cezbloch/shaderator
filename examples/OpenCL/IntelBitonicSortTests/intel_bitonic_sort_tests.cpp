@@ -14,6 +14,7 @@ public:
   {
     std::iota(std::begin(data), std::end(data), 0); // Fill with 0, 1, ..., 99.
     std::shuffle(data.begin(), data.end(), std::mt19937{ std::random_device{}() });
+    reference_data = data;
   }
 
   void ExecuteSortKernel(uint sortAscending)
@@ -40,18 +41,26 @@ public:
     }
   }
 
-  void verify() {}
+  void verify()
+  {
+    std::sort(reference_data.begin(), reference_data.end());
+    bool is_equal = std::equal(data.begin(), data.end(), reference_data.begin());
+    EXPECT_TRUE(is_equal);
+  }
 
+private:
   uint arraySize;
   std::vector<int> data;
+  std::vector<int> reference_data;
   BasicComputeExecutor executor;
 };
 
 TEST(BasicComputeGoogleTests, test_can_execute_open_cl_bitonic_sort)
 {
   Fixture fixture;
+  uint sortAscending = 1;
 
-  fixture.ExecuteSortKernel(0);
+  fixture.ExecuteSortKernel(sortAscending);
 
   fixture.verify();
 }

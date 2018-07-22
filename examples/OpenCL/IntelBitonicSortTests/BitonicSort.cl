@@ -26,8 +26,8 @@ __kernel void /*__attribute__((vec_type_hint(int4)))*/ BitonicSort(__global int4
 {
     size_t i = get_global_id(0);
     int4 srcLeft, srcRight, mask;
-    int4 imask10 = (int4)(0,  0, -1, -1);
-    int4 imask11 = (int4)(0, -1,  0, -1);
+    int4 imask10 = int4(0,  0, -1, -1);
+    int4 imask11 = int4(0, -1,  0, -1);
 
     if(stage > 0)
     {
@@ -80,7 +80,7 @@ __kernel void /*__attribute__((vec_type_hint(int4)))*/ BitonicSort(__global int4
     }
     else    // first stage, sort inside one four
     {
-        int4 imask0 = (int4)(0, -1, -1,  0);
+        int4 imask0 = int4(0, -1, -1,  0);
         srcLeft = theArray[i];
         srcRight = srcLeft.yxwz;
         mask = (srcLeft < srcRight) ^ imask0;
