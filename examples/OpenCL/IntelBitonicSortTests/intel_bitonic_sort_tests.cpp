@@ -9,7 +9,7 @@ class Fixture
 {
 public:
   Fixture()
-    : arraySize(1024)
+    : arraySize(256)
     , data(arraySize)
   {
     std::iota(std::begin(data), std::end(data), 0); // Fill with 0, 1, ..., 99.
