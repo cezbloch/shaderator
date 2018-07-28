@@ -173,7 +173,8 @@
     <ClInclude Include="glsl_include.h" />
     <ClInclude Include="hlsl_include.h" />
     <ClInclude Include="OpenCLEngine.h" />
-    <ClInclude Include="opencl_include.h" />
+    <ClInclude Include="opencl_support.h" />
+    <ClInclude Include="opencl_types.h" />
     <ClInclude Include="thread_joiner.h" />
     <ClInclude Include="shaderator.h" />
     <ClInclude Include="shader_types.h" />
@@ -185,6 +186,7 @@
     <ClCompile Include="cpp_functions.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="CpuTimeMeasurement.cpp" />
+    <ClCompile Include="opencl_support.cpp" />
     <ClCompile Include="texture_2d.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
