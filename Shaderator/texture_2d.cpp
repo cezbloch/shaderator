@@ -5,7 +5,7 @@ inline Texture2D<T>::Texture2D(uint2 size)
   : size_(size)
   //, data_(size_.x * size_.y, Element<T>())
   , data_(size_.x * size_.y, T())
-  , access_counts_(size_.x * size_.y, 0)
+  , write_counts_(size_.x * size_.y, 0)
 {}
 
 template<class T>

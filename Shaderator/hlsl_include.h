@@ -13,6 +13,8 @@
 #define SHADERATOR_SV_GroupID(groupID) uint3 groupID : SV_GroupID
 #define SHADERATOR_LOOP [loop]
 #define SHADERATOR_UNROLL [unroll]
+#define SHADERATOR_GROUPSHARED_ARRAY(type, name, size) groupshared type name[size]
+#define SHADERATOR_TYPE(type_name) type_name
 //#define SHADERATOR_COPY_ARRAY(destination, source) destination = source
 //#define SHADERATOR_ARRAY(type, name, size) type name[size]
 

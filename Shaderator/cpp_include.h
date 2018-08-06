@@ -33,6 +33,8 @@
 #define SHADERATOR_SV_GroupID(groupID) uint3 groupID
 #define SHADERATOR_LOOP 
 #define SHADERATOR_UNROLL
+#define SHADERATOR_GROUPSHARED_ARRAY(type, name, size) StructuredBuffer<type> name(size)
+#define SHADERATOR_TYPE(type_name) auto
 
 //#define SHADERATOR_COPY_ARRAY(destination, source) std::copy(std::begin(source), std::end(source), std::begin(destination));
 //#define SHADERATOR_ARRAY(type, name, size) std::array<type, size> name
