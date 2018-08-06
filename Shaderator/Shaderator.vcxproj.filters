@@ -1,74 +1,81 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="OpenCL">
+      <UniqueIdentifier>{73a883eb-a90c-4b4b-a977-076eae54d548}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    <Filter Include="GLSL">
+      <UniqueIdentifier>{8573febd-9b97-455d-9059-93694fef134d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Templates">
-      <UniqueIdentifier>{fc54810c-1878-4e61-9578-0c0fd003ae9b}</UniqueIdentifier>
+    <Filter Include="HLSL">
+      <UniqueIdentifier>{d5f1210a-b9a5-4c62-9801-53ab90425eff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{a6d9d319-3ee8-4d19-a1e3-6e7078a52388}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="opencl_support.h">
+      <Filter>OpenCL</Filter>
     </ClInclude>
-    <ClInclude Include="cpp_include.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="hlsl_include.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Barrier.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="shaderator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="shader_types.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CpuTimeMeasurement.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="opencl_types.h">
+      <Filter>OpenCL</Filter>
     </ClInclude>
     <ClInclude Include="glsl_include.h">
-      <Filter>Header Files</Filter>
+      <Filter>GLSL</Filter>
     </ClInclude>
-    <ClInclude Include="thread_joiner.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="hlsl_include.h">
+      <Filter>HLSL</Filter>
     </ClInclude>
-    <ClInclude Include="texture_2d.h">
-      <Filter>Templates</Filter>
+    <ClInclude Include="Engine.h">
+      <Filter>HLSL</Filter>
+    </ClInclude>
+    <ClInclude Include="cpp_include.h">
+      <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="OpenCLEngine.h">
-      <Filter>Templates</Filter>
+      <Filter>OpenCL</Filter>
+    </ClInclude>
+    <ClInclude Include="CpuTimeMeasurement.h">
+      <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="threadsafe_queue.h">
-      <Filter>Templates</Filter>
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="texture_2d.h">
+      <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="thread_pool.h">
-      <Filter>Templates</Filter>
+      <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="opencl_include.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Barrier.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="shader_types.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="shaderator.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="thread_joiner.h">
+      <Filter>Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="cpp_functions.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CpuTimeMeasurement.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="opencl_support.cpp">
+      <Filter>OpenCL</Filter>
     </ClCompile>
     <ClCompile Include="Engine.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>HLSL</Filter>
+    </ClCompile>
+    <ClCompile Include="cpp_functions.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="CpuTimeMeasurement.cpp">
+      <Filter>Common</Filter>
     </ClCompile>
     <ClCompile Include="texture_2d.cpp">
-      <Filter>Templates</Filter>
+      <Filter>Common</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

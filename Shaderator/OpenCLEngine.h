@@ -1,8 +1,6 @@
 #pragma once
-
-#pragma once
 #include "shader_types.h"
-#include "opencl_include.h"
+#include "opencl_support.h"
 #include <functional>
 #include <thread>
 #include <vector>
@@ -19,9 +17,9 @@ namespace Shaderator { namespace OpenCL {
     using Kernel = std::function<void(Args...)>;
 
     Engine::Engine(Kernel main, ClearGroupSharedVariables clear_function, uint3 numThreads)
-      : m_main(main)
-      , m_clear_groupshared_variables(clear_function)
-      , m_numThreads(numThreads)
+      : kernel_(main)
+      , clear_groupshared_variables_(clear_function)
+      , threads_amount_in_group_(numThreads)
     {
       SetNumThreads(numThreads);
     }
@@ -39,34 +37,35 @@ namespace Shaderator { namespace OpenCL {
     }
 
   private:
-    void run_thread_group(uint3 groupID, Args... args)
+    void run_thread_group(uint3 global_group_id, Args... args)
     {
-      m_clear_groupshared_variables();
+      clear_groupshared_variables_();
 
-      std::vector<std::thread> groupThreads;
-      for (uint z = 0; z < m_numThreads.z; ++z) {
-        for (uint y = 0; y < m_numThreads.y; ++y) {
-          for (uint x = 0; x < m_numThreads.x; ++x) {
-            uint3 groupThreadID(x, y, z);
-            uint3 dispatchThreadID(groupID * m_numThreads + groupThreadID);
-            uint threadIndex(m_numThreads.x * m_numThreads.y * z + m_numThreads.x * y + x);
-            auto kernel_thread = std::thread(m_main, args...);
-            {
-              std::lock_guard<std::mutex> lock(g_threadIdsMutex);
-              g_threadIds[kernel_thread.get_id()] = groupID.x;
-            }
-            groupThreads.push_back(std::move(kernel_thread));
+      std::vector<std::thread> group_threads;
+      for (uint z = 0; z < threads_amount_in_group_.z; ++z) {
+        for (uint y = 0; y < threads_amount_in_group_.y; ++y) {
+          for (uint x = 0; x < threads_amount_in_group_.x; ++x) {
+
+            uint3 local_thread_id (x, y, z);
+            uint3 global_thread_id (global_group_id * threads_amount_in_group_ + local_thread_id);
+            uint global_thread_index (threads_amount_in_group_.x * threads_amount_in_group_.y * z + threads_amount_in_group_.x * y + x);
+
+            auto kernel_thread = std::thread(kernel_, args...);
+            ThreadDescription desc{ global_group_id , global_thread_id, global_thread_index, local_thread_id };
+            set_thread_description(kernel_thread.get_id(), desc);
+
+            group_threads.push_back(std::move(kernel_thread));
           }
         }
       }
 
-      for (auto& thread : groupThreads) {
+      for (auto& thread : group_threads) {
         thread.join();
       }
     }
 
-    Kernel m_main;
-    ClearGroupSharedVariables m_clear_groupshared_variables;
-    uint3 m_numThreads;
+    Kernel kernel_;
+    ClearGroupSharedVariables clear_groupshared_variables_;
+    uint3 threads_amount_in_group_;
   };
 }}
