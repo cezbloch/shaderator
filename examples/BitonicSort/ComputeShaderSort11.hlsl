@@ -32,7 +32,7 @@ RWStructuredBuffer<unsigned int> SHADERATOR_REGISTER_U(Data, 0);
 //--------------------------------------------------------------------------------------
 // Bitonic Sort Compute Shader
 //--------------------------------------------------------------------------------------
-groupshared unsigned int shared_data[BITONIC_BLOCK_SIZE];
+SHADERATOR_GROUPSHARED_ARRAY(unsigned int, shared_data, BITONIC_BLOCK_SIZE);
 
 SHADERATOR_NUM_THREADS(BITONIC_BLOCK_SIZE, 1, 1)
 void BitonicSort(SHADERATOR_SV_DispatchThreadID(DTid), 
@@ -47,7 +47,7 @@ void BitonicSort(SHADERATOR_SV_DispatchThreadID(DTid),
     // Sort the shared data
     for (unsigned int j = g_iLevel >> 1 ; j > 0 ; j >>= 1)
     {
-        unsigned int result = ((shared_data[GI & ~j] <= shared_data[GI | j]) == (bool)(g_iLevelMask & DTid.x))? shared_data[GI ^ j] : shared_data[GI];
+        SHADERATOR_TYPE(unsigned int) result = ((shared_data[GI & ~j] <= shared_data[GI | j]) == (bool)(g_iLevelMask & DTid.x))? shared_data[GI ^ j] : shared_data[GI];
         GroupMemoryBarrierWithGroupSync();
         shared_data[GI] = result;
         GroupMemoryBarrierWithGroupSync();
@@ -60,7 +60,7 @@ void BitonicSort(SHADERATOR_SV_DispatchThreadID(DTid),
 //--------------------------------------------------------------------------------------
 // Matrix Transpose Compute Shader
 //--------------------------------------------------------------------------------------
-groupshared unsigned int transpose_shared_data[TRANSPOSE_BLOCK_SIZE * TRANSPOSE_BLOCK_SIZE];
+SHADERATOR_GROUPSHARED_ARRAY(unsigned int, transpose_shared_data, TRANSPOSE_BLOCK_SIZE * TRANSPOSE_BLOCK_SIZE);
 
 SHADERATOR_NUM_THREADS(TRANSPOSE_BLOCK_SIZE, TRANSPOSE_BLOCK_SIZE, 1)
 void MatrixTranspose( SHADERATOR_SV_DispatchThreadID(DTid), 

@@ -1,4 +1,5 @@
-#define _SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING 
+#define _SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING
+#define USE_ELEMENT
 
 #include "gtest/gtest.h"
 #include "bitonic_sort_executor.h"
@@ -10,7 +11,7 @@
 
 using UINT = unsigned int;
 
-const UINT BITONIC_BLOCK_SIZE = 16;// 512;
+const UINT BITONIC_BLOCK_SIZE = 16;
 const UINT TRANSPOSE_BLOCK_SIZE = 16;
 const UINT NUM_ELEMENTS = BITONIC_BLOCK_SIZE * TRANSPOSE_BLOCK_SIZE;
 const UINT MATRIX_WIDTH = BITONIC_BLOCK_SIZE;
@@ -28,8 +29,9 @@ public:
 
   void CPUShaderSort()
   {
+    cpuShader.InitializeGroupShareds();
     // Upload the data
-    cpuShader.UpdateSubresource(buffer1UAV, &data[0], NUM_ELEMENTS);
+    cpuShader.UpdateSubresource(buffer1UAV, data);
 
     // Sort the data
     // First sort the rows for the levels <= to the block size
@@ -79,7 +81,7 @@ public:
     bool are_shader_elements_sorted = true;
     for (UINT i = 0; i < NUM_ELEMENTS; ++i)
     {
-      if (data[i] != buffer1UAV[i])
+      if (data[i] != buffer1UAV[i].get())
       {
         are_shader_elements_sorted = false;
         break;

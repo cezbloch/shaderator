@@ -2,6 +2,7 @@
 
 #include <vector>
 #define TRACE_ACCESS
+#define USE_ELEMENT
 #include "shaderator.h"
 
 class CSSortExecutor
@@ -9,8 +10,9 @@ class CSSortExecutor
 public:
   void SetShaderResources0(StructuredBuffer<unsigned int>& buffer);
   void SetUnorderedAccessViews0(RWStructuredBuffer<unsigned int>& buffer);
+  void InitializeGroupShareds();
 
-  void UpdateSubresource(StructuredBuffer<unsigned int>& buffer, const void *pSrcData, unsigned int size);
+  void UpdateSubresource(StructuredBuffer<unsigned int>& buffer, const std::vector<uint>& srcData);
   void SetConstants(unsigned int iLevel, unsigned int iLevelMask, unsigned int iWidth, unsigned int iHeight);
 
   void DispatchBitonicSort(unsigned int x, unsigned int y, unsigned int z);

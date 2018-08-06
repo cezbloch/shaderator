@@ -168,7 +168,9 @@
       </Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>copy ComputeShaderSort11.hlsl $(SolutionDir)Shaderator</Command>
+      <Command>copy ComputeShaderSort11.hlsl $(SolutionDir)Shaderator
+cd $(SolutionDir)Shaderator
+$(TargetDir)$(ProjectName)$(TargetExt)</Command>
     </PostBuildEvent>
     <CustomBuildStep>
       <Command>copy /y "$(WindowsSdkDir)redist\d3d\x86\D3DCompile*.DLL" "$(TargetDir)"</Command>
@@ -215,7 +217,9 @@
       </Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>copy ComputeShaderSort11.hlsl $(SolutionDir)Shaderator</Command>
+      <Command>copy ComputeShaderSort11.hlsl $(SolutionDir)Shaderator
+cd $(SolutionDir)Shaderator
+$(TargetDir)$(ProjectName)$(TargetExt)</Command>
     </PostBuildEvent>
     <CustomBuildStep>
       <Command>copy /y "$(WindowsSdkDir)redist\d3d\x64\D3DCompile*.DLL" "$(TargetDir)"</Command>
@@ -265,7 +269,9 @@
       </Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>copy ComputeShaderSort11.hlsl $(SolutionDir)Shaderator</Command>
+      <Command>copy ComputeShaderSort11.hlsl $(SolutionDir)Shaderator
+cd $(SolutionDir)Shaderator
+$(TargetDir)$(ProjectName)$(TargetExt)</Command>
     </PostBuildEvent>
     <CustomBuildStep>
       <Command>copy /y "$(WindowsSdkDir)redist\d3d\x86\D3DCompile*.DLL" "$(TargetDir)"</Command>
@@ -314,7 +320,9 @@
       </Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>copy ComputeShaderSort11.hlsl $(SolutionDir)Shaderator</Command>
+      <Command>copy ComputeShaderSort11.hlsl $(SolutionDir)Shaderator
+cd $(SolutionDir)Shaderator
+$(TargetDir)$(ProjectName)$(TargetExt)</Command>
     </PostBuildEvent>
     <CustomBuildStep>
       <Command>copy /y "$(WindowsSdkDir)redist\d3d\x64\D3DCompile*.DLL" "$(TargetDir)"</Command>
@@ -364,7 +372,9 @@
       </Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>copy ComputeShaderSort11.hlsl $(SolutionDir)Shaderator</Command>
+      <Command>copy ComputeShaderSort11.hlsl $(SolutionDir)Shaderator
+cd $(SolutionDir)Shaderator
+$(TargetDir)$(ProjectName)$(TargetExt)</Command>
     </PostBuildEvent>
     <CustomBuildStep>
       <Command>copy /y "$(WindowsSdkDir)redist\d3d\x86\D3DCompile*.DLL" "$(TargetDir)"</Command>
@@ -413,7 +423,9 @@
       </Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>copy ComputeShaderSort11.hlsl $(SolutionDir)Shaderator</Command>
+      <Command>copy ComputeShaderSort11.hlsl $(SolutionDir)Shaderator
+cd $(SolutionDir)Shaderator
+$(TargetDir)$(ProjectName)$(TargetExt)</Command>
     </PostBuildEvent>
     <CustomBuildStep>
       <Command>copy /y "$(WindowsSdkDir)redist\d3d\x64\D3DCompile*.DLL" "$(TargetDir)"</Command>

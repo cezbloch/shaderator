@@ -413,7 +413,7 @@ void CPUShaderSort()
   CSSortExecutor cpuShader;
 
   // Upload the data
-  cpuShader.UpdateSubresource(buffer1UAV, &data[0], NUM_ELEMENTS);
+  cpuShader.UpdateSubresource(buffer1UAV, data);
 
   // Sort the data
   // First sort the rows for the levels <= to the block size
@@ -528,7 +528,7 @@ int __cdecl wmain()
     bComparisonSucceeded = true;
     for (UINT i = 0; i < NUM_ELEMENTS; ++i)
     {
-      if (data[i] != buffer1UAV[i])
+      if (data[i] != buffer1UAV[i].get())
       {
         bComparisonSucceeded = false;
         break;
@@ -551,7 +551,11 @@ int __cdecl wmain()
     SAFE_RELEASE( g_pd3dImmediateContext );
     SAFE_RELEASE( g_pd3dDevice );
 
-    return 0;
+    if (bComparisonSucceeded) {
+      return 0;
+    } else {
+      return -1;
+    }
 }
 
 //--------------------------------------------------------------------------------------

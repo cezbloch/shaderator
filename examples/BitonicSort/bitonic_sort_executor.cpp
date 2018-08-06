@@ -5,8 +5,13 @@
 
 void ClearGroupShareds()
 {
-  memset(&shared_data, 0, sizeof shared_data);
-  memset(&transpose_shared_data, 0, sizeof transpose_shared_data);
+  for (int i = 0; i < BITONIC_BLOCK_SIZE; i++) {
+    shared_data[i] = 0;
+  }
+
+  for (int i = 0; i < TRANSPOSE_BLOCK_SIZE * TRANSPOSE_BLOCK_SIZE; i++) {
+    transpose_shared_data[i] = 0;
+  }
 }
 
 
@@ -22,11 +27,21 @@ void CSSortExecutor::SetUnorderedAccessViews0(RWStructuredBuffer<unsigned int>& 
   Data.swap(buffer);
 }
 
-void CSSortExecutor::UpdateSubresource(StructuredBuffer<unsigned int>& buffer, const void *pSrcData, unsigned int size)
+void CSSortExecutor::InitializeGroupShareds()
 {
-  const unsigned int* srcData = static_cast<const unsigned int*>(pSrcData);
-  assert(size <= buffer.length());
-  memcpy(&buffer[0], srcData, size * sizeof(unsigned int));
+  shared_data = StructuredBuffer<unsigned int>(BITONIC_BLOCK_SIZE);
+  transpose_shared_data = StructuredBuffer<unsigned int>(TRANSPOSE_BLOCK_SIZE * TRANSPOSE_BLOCK_SIZE);
+}
+
+void CSSortExecutor::UpdateSubresource(StructuredBuffer<unsigned int>& buffer, const std::vector<uint>& srcData)
+{
+  assert(srcData.size() <= buffer.length());
+  for (int i = 0; i < buffer.length(); i++) {
+    auto value = srcData[i];
+    auto& element = buffer[i];
+    element = value;
+    buffer[i] = srcData[i];
+  }
 }
 
 void CSSortExecutor::SetConstants(unsigned int iLevel, unsigned int iLevelMask, unsigned int iWidth, unsigned int iHeight)
@@ -67,7 +82,9 @@ void CSSortExecutor::restore_buffers()
 StructuredBuffer<uint> CreateBuffer(unsigned int num_elements)
 {
   StructuredBuffer<uint> buffer(num_elements);
-  memset(&buffer[0], 0, num_elements* sizeof(unsigned int));
+  for (int i = 0; i < num_elements; i++) {
+    buffer[i] = 0;
+  }
 
   return buffer;
 }
