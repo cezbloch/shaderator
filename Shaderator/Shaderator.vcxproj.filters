@@ -60,6 +60,12 @@
     <ClInclude Include="thread_joiner.h">
       <Filter>Common</Filter>
     </ClInclude>
+    <ClInclude Include="access_counting_container.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="element.h">
+      <Filter>Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="opencl_support.cpp">
@@ -72,9 +78,6 @@
       <Filter>Common</Filter>
     </ClCompile>
     <ClCompile Include="CpuTimeMeasurement.cpp">
-      <Filter>Common</Filter>
-    </ClCompile>
-    <ClCompile Include="texture_2d.cpp">
       <Filter>Common</Filter>
     </ClCompile>
   </ItemGroup>

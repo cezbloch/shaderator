@@ -3,12 +3,12 @@
 #ifdef __cplusplus
 
 #include "shader_types.h"
-#include "texture_2d.h"
+#include "access_counting_container.h"
 
 #define groupshared
 #ifdef TRACE_ACCESS
-#define RWStructuredBuffer Texture2D
-#define StructuredBuffer Texture2D
+#define RWStructuredBuffer AccessCountingContainer
+#define StructuredBuffer AccessCountingContainer
 #else
 #define RWStructuredBuffer std::vector
 #define StructuredBuffer std::vector
