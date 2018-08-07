@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#define TRACE_ACCESS
+//#define TRACE_ACCESS
 #include "shaderator.h"
 #include "shared_types.h"
 

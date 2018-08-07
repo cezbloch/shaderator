@@ -13,13 +13,13 @@ void ClearGroupShareds()
 void BasicComputeExecutor::SetBuffer0(const StructuredBuffer<BufType>& buffer)
 {
   Buffer0 = buffer;
-  Buffer0.reset_access_counts();
+  //Buffer0.reset_access_counts();
 }
 
 void BasicComputeExecutor::SetBuffer1(const StructuredBuffer<BufType>& buffer)
 {
   Buffer1 = buffer;
-  Buffer1.reset_access_counts();
+  //Buffer1.reset_access_counts();
 }
 
 void BasicComputeExecutor::CreateOutput(uint size)
