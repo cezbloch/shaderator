@@ -5,6 +5,7 @@
     <ClCompile Include="thread_pool_tests.cpp" />
     <ClCompile Include="threadsafe_queue_tests.cpp" />
     <ClCompile Include="hlsl_syntax_tests.cpp" />
+    <ClCompile Include="access_counting_container_tests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

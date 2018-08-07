@@ -53,6 +53,7 @@
     <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="access_counting_container_tests.cpp" />
     <ClCompile Include="barrier_tests.cpp" />
     <ClCompile Include="hlsl_syntax_tests.cpp" />
     <ClCompile Include="threadsafe_queue_tests.cpp" />
