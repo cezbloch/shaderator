@@ -2,7 +2,6 @@
 
 #include <vector>
 #define TRACE_ACCESS
-#define USE_ELEMENT
 #include "shaderator.h"
 
 class CSSortExecutor

@@ -1,5 +1,5 @@
 #define _SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING
-#define USE_ELEMENT
+#define TRACE_ACCESS
 
 #include "gtest/gtest.h"
 #include "bitonic_sort_executor.h"
