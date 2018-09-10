@@ -107,6 +107,19 @@ int4 operator<(int4 v1, int4 v2)
   return result;
 }
 
+uint firstbithigh(uint value)
+{
+  if (value == 0) return -1;
+
+  uint pos = 0;
+  while ((value >> pos) != 1)
+  {
+    pos++;
+  }
+
+  return pos;
+}
+
 //template<typename T>
 //uint asuint(T t)
 //{

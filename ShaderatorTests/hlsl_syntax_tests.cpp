@@ -13,6 +13,17 @@ TEST(HlslSyntaxTests, less_than_operator_compiless)
   mask = srcLeft < srcRight;
 }
 
+TEST(HlslSyntaxTests, firstbithigh)
+{
+  EXPECT_EQ(firstbithigh(0), uint(-1));
+  EXPECT_EQ(firstbithigh(1), 0);
+  EXPECT_EQ(firstbithigh(2), 1);
+  EXPECT_EQ(firstbithigh(3), 1);
+  EXPECT_EQ(firstbithigh(4), 2);
+  EXPECT_EQ(firstbithigh(0b101), 2);
+  EXPECT_EQ(firstbithigh(0b100010101), 8);
+}
+
 // Below are some tests used for partial work on BC6HBC7EncoderCS project from directx samples
 
 //TEST_METHOD(TestAssignmentUint4)
