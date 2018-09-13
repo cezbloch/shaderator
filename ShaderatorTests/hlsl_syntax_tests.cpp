@@ -24,6 +24,14 @@ TEST(HlslSyntaxTests, firstbithigh)
   EXPECT_EQ(firstbithigh(0b100010101), 8);
 }
 
+TEST(HlslSyntaxTests, reversebits)
+{
+  EXPECT_EQ(reversebits(0), 0);
+  EXPECT_EQ(reversebits(1), 0b10000000000000000000000000000000);
+  EXPECT_EQ(reversebits(0b00000000000000000000000000001111), 0b11110000000000000000000000000000);
+  EXPECT_EQ(reversebits(0b01010000000000000000000000000101), 0b10100000000000000000000000001010);
+}
+
 // Below are some tests used for partial work on BC6HBC7EncoderCS project from directx samples
 
 //TEST_METHOD(TestAssignmentUint4)
