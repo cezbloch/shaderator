@@ -53,6 +53,7 @@ uint3 operator&(uint3 v1, uint3 v2);
 int4 operator<(int4 v1, int4 v2);
 
 uint firstbithigh(uint value);
+uint reversebits(uint value);
 
 void ShaderAssert(bool expression);
 

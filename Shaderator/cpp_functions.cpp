@@ -120,6 +120,25 @@ uint firstbithigh(uint value)
   return pos;
 }
 
+template <typename T>
+T reverse(T n, size_t b = sizeof(T) * CHAR_BIT)
+{
+  assert(b <= std::numeric_limits<T>::digits);
+
+  T rv = 0;
+
+  for (size_t i = 0; i < b; ++i, n >>= 1) {
+    rv = (rv << 1) | (n & 0x01);
+  }
+
+  return rv;
+}
+
+uint reversebits(uint value)
+{
+  return reverse<uint>(value);
+}
+
 //template<typename T>
 //uint asuint(T t)
 //{
