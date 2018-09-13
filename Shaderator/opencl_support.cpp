@@ -12,12 +12,12 @@ void barrier(int type)
 
 int sub_group_reduce_add(int value)
 {
-  return value;
+  throw std::logic_error("Not implemented!");
 }
 
 int sub_group_scan_exclusive_add(int value)
 {
-  return value;
+  throw std::logic_error("Not implemented!");
 }
 
 int get_global_id(int i)
