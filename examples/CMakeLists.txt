@@ -1,3 +1,5 @@
 add_subdirectory(BasicComputeTests)
 add_subdirectory(BitonicSort)
 add_subdirectory(BitonicSortTests)
+add_subdirectory(GlslShadersTests)
+add_subdirectory(OpenCL)

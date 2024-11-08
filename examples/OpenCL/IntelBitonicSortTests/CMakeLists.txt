@@ -1,0 +1,8 @@
+add_executable(opencl_intel_bitonic_sort_tests
+    intel_bitonic_sort_executor.cpp
+    intel_bitonic_sort_tests.cpp
+)
+
+target_link_libraries(opencl_intel_bitonic_sort_tests Shaderator pthread gtest_main)
+
+add_test(NAME opencl_intel_bitonic_sort_tests COMMAND opencl_intel_bitonic_sort_tests)

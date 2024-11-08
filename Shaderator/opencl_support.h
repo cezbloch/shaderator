@@ -1,8 +1,9 @@
 #pragma once
 
-#include <mutex>
 #include <map>
-//#include "windows.h"
+#include <mutex>
+#include <thread>
+
 #include "opencl_types.h"
 
 #define __global

@@ -1,9 +1,13 @@
 #include "pch.h"
-#include "intel_bitonic_sort_executor.h"
+
+#include <algorithm> //std::sort, std::shuffle
 #include <iterator> //std::begin
 #include <numeric> //std::itoa
 #include <random>
 #include <vector>
+
+#include "intel_bitonic_sort_executor.h"
+
 
 class Fixture
 {
