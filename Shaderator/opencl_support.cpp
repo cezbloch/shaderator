@@ -1,5 +1,8 @@
+#include <thread>
+
 #include "opencl_support.h"
 #include "cpp_include.h"
+
 
 std::mutex g_thread_descriptions_mutex;
 std::map<std::thread::id, ThreadDescription> g_thread_descriptions;

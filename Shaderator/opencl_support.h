@@ -2,7 +2,7 @@
 
 #include <mutex>
 #include <map>
-#include "windows.h"
+//#include "windows.h"
 #include "opencl_types.h"
 
 #define __global
@@ -14,18 +14,18 @@
 #define CLK_LOCAL_MEM_FENCE 1
 #define CLK_GLOBAL_MEM_FENCE 2
 
-template<typename T>
-void atomic_or(T* dest, T value)
-{
-  InterlockedOr(reinterpret_cast<long*>(dest), value);
-}
+// template<typename T>
+// void atomic_or(T* dest, T value)
+// {
+//   InterlockedOr(reinterpret_cast<long*>(dest), value);
+// }
 
 
-template<typename T>
-void atomic_and(T* dest, T value)
-{
-  InterlockedAnd(reinterpret_cast<long*>(dest), value);
-}
+// template<typename T>
+// void atomic_and(T* dest, T value)
+// {
+//   InterlockedAnd(reinterpret_cast<long*>(dest), value);
+// }
 
 void barrier(int type);
 int sub_group_reduce_add(int value);
