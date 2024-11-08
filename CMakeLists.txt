@@ -18,6 +18,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY
 
 # defines targets and sources
 add_subdirectory(Shaderator)
+add_subdirectory(examples)
 
 # Include directories for Shaderator
 target_include_directories(Shaderator
@@ -26,16 +27,15 @@ target_include_directories(Shaderator
     ${CMAKE_CURRENT_LIST_DIR}/glm
 )
 
-# contains an "external" library we will link to
-add_subdirectory(external) # this does not work yet
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Debug)
+endif()
 
 # Add an option to build tests
 option(BUILD_TESTS "Build Shaderator tests" ON)
-# enable testing and define tests
-# if(BUILD_TESTS)
-#     enable_testing()
-#     add_subdirectory(ShaderatorTests)
-# endif()
 
-enable_testing()
-add_subdirectory(ShaderatorTests)
+# enable testing and define tests
+if(BUILD_TESTS)
+    enable_testing()
+    add_subdirectory(ShaderatorTests)
+endif()

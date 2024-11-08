@@ -1,5 +1,3 @@
-[![Build Status](https://potrecs.visualstudio.com/_apis/public/build/definitions/76cd276e-183c-4a57-9255-523bf379583d/2/badge)](https://potrecs.visualstudio.com/Shaderator/_build/index?definitionId=2)
-
 # What is this?
 Shaderator is a productivity library intended to speed up complex Compute Shader development. It also provides means to Unit Tests shader code offering protection against regressions. Click on the image below to see the Lighting Talk from ACCU 2018 Conference.
 
@@ -31,7 +29,7 @@ Run the following commands to build:
 ```
 mkdir build
 cd build
-cmake ..
+cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTS=ON ..
 make
 ```
 
@@ -54,12 +52,8 @@ When using VS Code and all the recommended extensions were installed, then tests
 4. Put breakpoint anywhere in ComputeShaderSort11.hlsl shader file 
 5. Press F5 to Debug
 
-![](http://oi65.tinypic.com/358dwm1.jpg)
-
 VS will start regular debugging session and you will be able to debug the .hlsl shader code as C++ code. You can see all variables, can add them to watch, pin or look-up values when hovering the mouse.
 CPU shader is obviously very slow. The intention is to provide tools for faster Computer Shader development.
-
-![](http://oi67.tinypic.com/1zp6rvc.jpg)
 
 If you have Visual Assist X installed debugging experience may be reduced.
 

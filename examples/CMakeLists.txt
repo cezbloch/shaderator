@@ -1,0 +1,3 @@
+add_subdirectory(BasicComputeTests)
+add_subdirectory(BitonicSort)
+add_subdirectory(BitonicSortTests)
