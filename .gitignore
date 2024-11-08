@@ -24,3 +24,9 @@
 /packages
 /.idea
 /examples/OpenCL/IntelBitonicSort/BitonicSort/.vs/BitonicSort_2015/v15
+
+# Linux
+build/
+
+# VS Code
+.vscode/
