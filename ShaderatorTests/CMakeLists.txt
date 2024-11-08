@@ -9,7 +9,13 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
-add_executable(cpp_test thread_pool_tests.cpp)
+add_executable(cpp_test 
+    access_counting_container_tests.cpp
+    barrier_tests.cpp
+    hlsl_syntax_tests.cpp
+    thread_pool_tests.cpp
+    threadsafe_queue_tests.cpp
+)
 #target_link_libraries(cpp_test Shaderator)
 # Link the Shaderator library and pthread and Gtest
 target_link_libraries(cpp_test Shaderator pthread)

@@ -34,8 +34,3 @@ TEST(ThreadPool, finishes_all_tasks)
 
   EXPECT_EQ(g_values[6], 49);
 }
-
-int main(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
