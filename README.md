@@ -16,7 +16,7 @@ If you use VS Code install recommended extensions from
 
 Install compiler and build tools
 
-```sudo apt-get install cmake build-essential gdb```
+```sudo apt-get install -y cmake build-essential gdb```
 
 # Building
 
