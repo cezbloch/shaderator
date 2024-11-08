@@ -22,4 +22,4 @@ add_executable(shaderator_tests
 # Link the Shaderator library and pthread and Gtest
 target_link_libraries(shaderator_tests Shaderator pthread gtest_main)
 
-add_test(NAME example_test COMMAND shaderator_tests)
+add_test(NAME shaderator_tests COMMAND shaderator_tests)
