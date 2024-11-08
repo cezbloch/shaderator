@@ -8,6 +8,18 @@ Shaderator is a productivity library intended to speed up complex Compute Shader
 # What problem does it solve?
 Due to the nature of GPUs shaders are hard to debug. Back in the day developer wrote one, executed a batch and hoped for the best that the result is correct. Kernel function is usually executed hundreds of thousand times writing data to output buffer which can only be looked up when the Dispatch finished. This tool compiles .hlsl shader code to C++ and enables developer to leverage full Visual Studio debugging functionality to quickly find problems in the code.
 
+# Setup
+
+If you use VS Code install recommended extensions from 
+
+```configs/recommended_extensions.json```
+
+## Linux
+
+Install compiler and build tools
+
+```sudo apt-get install cmake build-essential gdb```
+
 # Building
 
 Shaderators uses CMake to setup and run the build process.
@@ -27,13 +39,14 @@ CMake will download the neccessary dependencies like GoogleTests.
 
 # Unit testing
 
-To execute unit tests run the command
+To execute unit tests run from command line run
 
 ```ctests --verbose```
 
+When using VS Code and all the recommended extensions were installed, then tests should be visible in the 'Test Explorer UI'.
 
 
-# Windows - Getting started with debugging
+# (old instructions) Windows - Getting started with debugging 
 
 1. Open Shaderator.sln in VS 2017
 2. Build solution (better choose Debug configuration to see more variables under debugger)
@@ -69,4 +82,4 @@ At the moment matrices are not supported yet.
 
 # Problems or feedback
 
-Please e-mail me at cez dot bloch at gmail dot com, you can also find email on my github profile.
+Submit any issues on github. Feel free to contact the author directly with information available on github.

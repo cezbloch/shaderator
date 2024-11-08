@@ -1,0 +1,7 @@
+{
+    "recommendations": [
+      "github.vscode-github-actions",
+      "hbenl.vscode-test-explorer",
+      "matepek.vscode-catch2-test-adapter"
+    ]
+}
