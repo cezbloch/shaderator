@@ -24,7 +24,8 @@ class thread_pool
 {
 public:
   thread_pool(ShaderKernel kernel, unsigned int threadsAmount)
-    : m_shader(kernel)
+    : m_exit(false)
+    , m_shader(kernel)
     , m_joiner(m_threads)
   {
     for (uint i = 0; i < threadsAmount; ++i)
@@ -65,7 +66,7 @@ private:
     }
   }
 
-  std::atomic_bool m_exit = false;
+  std::atomic_bool m_exit;
   ShaderKernel m_shader;
   std::vector<std::thread> m_threads;
   threadsafe_queue<KernelArguments> m_argumentsQueue;

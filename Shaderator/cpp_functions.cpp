@@ -2,14 +2,14 @@
 #include "Barrier.h"
 //#include "windows.h"
 #include <atomic>
-#include <cassert>
+//#include <cassert>
 
 
 static std::unique_ptr<Barrier> g_GroupMemoryBarrierWithGroupSync;
 
 // void ShaderInterlockedOr(int& dest, int value) 
 // { 
-//   nterlockedOr(reinterpret_cast<long*>(&dest), value); 
+//   InterlockedOr(reinterpret_cast<long*>(&dest), value); 
 // }
 
 // void ShaderInterlockedAnd(int& dest, int value) 

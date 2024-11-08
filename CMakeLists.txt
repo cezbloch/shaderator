@@ -30,9 +30,12 @@ target_include_directories(Shaderator
 add_subdirectory(external) # this does not work yet
 
 # Add an option to build tests
-option(BUILD_TESTS "Build Shaderator tests" OFF)
+option(BUILD_TESTS "Build Shaderator tests" ON)
 # enable testing and define tests
-if(BUILD_TESTS)
-    enable_testing()
-    add_subdirectory(ShaderatorTests)
-endif()
+# if(BUILD_TESTS)
+#     enable_testing()
+#     add_subdirectory(ShaderatorTests)
+# endif()
+
+enable_testing()
+add_subdirectory(ShaderatorTests)
