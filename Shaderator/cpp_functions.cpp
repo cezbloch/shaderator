@@ -1,18 +1,30 @@
 #include "cpp_include.h"
 #include "Barrier.h"
-#include "windows.h"
+//#include "windows.h"
+#include <atomic>
+//#include <cassert>
 
 
 static std::unique_ptr<Barrier> g_GroupMemoryBarrierWithGroupSync;
 
-void ShaderInterlockedOr(int& dest, int value) 
+// void ShaderInterlockedOr(int& dest, int value) 
+// { 
+//   InterlockedOr(reinterpret_cast<long*>(&dest), value); 
+// }
+
+// void ShaderInterlockedAnd(int& dest, int value) 
+// { 
+//   InterlockedAnd(reinterpret_cast<long*>(&dest), value); 
+// }
+
+void ShaderInterlockedOr(std::atomic<int>& dest, int value) 
 { 
-  InterlockedOr(reinterpret_cast<long*>(&dest), value); 
+    dest.fetch_or(value, std::memory_order_seq_cst);
 }
 
-void ShaderInterlockedAnd(int& dest, int value) 
+void ShaderInterlockedAnd(std::atomic<int>& dest, int value) 
 { 
-  InterlockedAnd(reinterpret_cast<long*>(&dest), value); 
+    dest.fetch_and(value, std::memory_order_seq_cst);
 }
 
 void ShaderAssert(bool expression) 
@@ -96,7 +108,7 @@ int compareInts(int x, int y)
 
 // From OpenCL 1.2 Specification:
 // "For vector types, the relational operators shall return 0 if the specified
-// relation is false and –1(i.e.all bits set) if the specified relation is true."
+// relation is false and ï¿½1(i.e.all bits set) if the specified relation is true."
 int4 operator<(int4 v1, int4 v2)
 {
   int4 result;

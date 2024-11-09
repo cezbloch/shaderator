@@ -1,13 +1,15 @@
 #define _SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING
 #define TRACE_ACCESS
 
-#include "gtest/gtest.h"
-#include "bitonic_sort_executor.h"
-#include "shader_types.h"
+#include <algorithm> //std::sort, std::shuffle
 #include <iterator> //std::begin
 #include <numeric> //std::itoa
 #include <random>
 #include <vector>
+
+#include "gtest/gtest.h"
+#include "bitonic_sort_executor.h"
+#include "shader_types.h"
 
 using UINT = unsigned int;
 

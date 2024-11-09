@@ -76,7 +76,7 @@ public:
 
   void reset_access_counts()
   {
-    std::memset(&access_counts_[0], 0, (sizeof uint) * size_.x * size_.y);
+    std::memset(&access_counts_[0], 0, sizeof(uint) * size_.x * size_.y);
     for (auto& el : data_) {
       el.reset_count();
     }

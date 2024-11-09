@@ -4,6 +4,7 @@
 
 #include "threadsafe_queue.h"
 #include <vector>
+#include <thread>
 
 
 TEST(ThreadSafeQueue, is_empty)

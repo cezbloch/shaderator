@@ -16,7 +16,7 @@ namespace Shaderator { namespace OpenCL {
   public:
     using Kernel = std::function<void(Args...)>;
 
-    Engine::Engine(Kernel main, ClearGroupSharedVariables clear_function, uint3 numThreads)
+    Engine(Kernel main, ClearGroupSharedVariables clear_function, uint3 numThreads)
       : kernel_(main)
       , clear_groupshared_variables_(clear_function)
       , threads_amount_in_group_(numThreads)
