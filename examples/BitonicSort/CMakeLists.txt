@@ -3,7 +3,7 @@ add_library(BitonicSort "")
 target_sources(BitonicSort
   PRIVATE
     bitonic_sort_executor.cpp
-    ComputeShaderSort11.hlsl
+    #ComputeShaderSort11.hlsl
   PUBLIC
     ${CMAKE_CURRENT_LIST_DIR}/bitonic_sort_executor.h
   )
