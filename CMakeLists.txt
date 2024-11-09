@@ -18,7 +18,6 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY
 
 # defines targets and sources
 add_subdirectory(Shaderator)
-add_subdirectory(examples)
 
 # Include directories for Shaderator
 target_include_directories(Shaderator
@@ -38,4 +37,5 @@ option(BUILD_TESTS "Build Shaderator tests" ON)
 if(BUILD_TESTS)
     enable_testing()
     add_subdirectory(ShaderatorTests)
+    add_subdirectory(examples)
 endif()
