@@ -44,7 +44,33 @@ To execute unit tests run from command line run
 When using VS Code and all the recommended extensions were installed, then tests should be visible in the 'Test Explorer UI'.
 
 
-# (old instructions) Windows - Getting started with debugging 
+# Examples
+
+There are several examples in folder ```examples``` how to write a test for you shaders/kernels. The idea is not leave the production code as much untouched as possible, but it's not always possible. Sometimes variables or data types need to be wrapped in a ```Shaderator``` macros.
+
+You also need to write an ```executor``` which will handle input and exectution of your specific kernel.
+
+There are examples for:
+- Direct Compute HLSL
+- OpenGL GLSL
+- OpenCL C
+
+Functionality for your specific kernel may be missing and would need to be added. If that is the case please submit an issue or feature request on github.
+
+# FAQ
+
+## Will this work with any shader?
+Not yet, the project is in it's early phase, however it should work with many shaders. If there is interest, support for more HLSL language features will be added.
+At the moment matrices are not supported yet.
+
+# Problems or feedback
+
+Submit any issues on github. Feel free to contact the author directly with information available on github.
+
+
+# (old instructions) Windows - Getting started with debugging
+
+NOTE: This instructions are from year 2018 and serve as reference. Running Shaderator on Windows has not been tried since then.
 
 1. Open Shaderator.sln in VS 2017
 2. Build solution (better choose Debug configuration to see more variables under debugger)
@@ -69,11 +95,3 @@ If you have Visual Assist X installed debugging experience may be reduced.
 
 * Windows 10
 * Visual Studio 2017
-
-# Will this work with any shader?
-Not yet, the project is in it's early phase, however it should work with many shaders. If there is interest, support for more HLSL language features will be added.
-At the moment matrices are not supported yet.
-
-# Problems or feedback
-
-Submit any issues on github. Feel free to contact the author directly with information available on github.
