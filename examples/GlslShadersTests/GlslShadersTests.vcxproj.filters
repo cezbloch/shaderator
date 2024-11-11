@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <None Include="packages.config" />
     <None Include="ray_tracer.glsl">
       <Filter>GLSL Shaders</Filter>
     </None>
     <None Include="sample_shader.glsl">
       <Filter>GLSL Shaders</Filter>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="GLSL Shaders">

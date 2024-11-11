@@ -23,14 +23,14 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <Filter Include="executor">
       <UniqueIdentifier>{7a1cef35-4ffe-4b28-aa44-9cbd07a6ecd8}</UniqueIdentifier>
     </Filter>
     <Filter Include="shaders">
       <UniqueIdentifier>{90f3b3f8-480f-4aab-be19-3114dfda2804}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
