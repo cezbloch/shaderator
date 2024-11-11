@@ -89,8 +89,6 @@ StructuredBuffer<uint> CreateBuffer(unsigned int num_elements)
   return buffer;
 }
 
-//////////////////////// Unit Testing functions ////////////////////////////////
-
 void CSSortExecutor::RunBitonicSortKernel(uint3 dispatchThreadId, uint3 groupId, uint3 groupThreadId, uint groupIndex)
 {
   SetNumThreads(uint3(1, 1, 1));

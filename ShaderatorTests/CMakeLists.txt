@@ -19,7 +19,7 @@ add_executable(shaderator_tests
     thread_pool_tests.cpp
     threadsafe_queue_tests.cpp
 )
-# Link the Shaderator library and pthread and Gtest
-target_link_libraries(shaderator_tests Shaderator pthread gtest_main)
+
+target_link_libraries(shaderator_tests Shaderator gtest_main)
 
 add_test(NAME shaderator_tests COMMAND shaderator_tests)

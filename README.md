@@ -6,23 +6,21 @@ Shaderator is a productivity library intended to speed up complex Compute Shader
 # What problem does it solve?
 Due to the nature of GPUs shaders are hard to debug. Back in the day developer wrote one, executed a batch and hoped for the best that the result is correct. Kernel function is usually executed hundreds of thousand times writing data to output buffer which can only be looked up when the Dispatch finished. This tool compiles .hlsl shader code to C++ and enables developer to leverage full Visual Studio debugging functionality to quickly find problems in the code.
 
-# Setup
+# Linux
+
+## Setup
 
 If you use VS Code install recommended extensions from 
 
 ```configs/recommended_extensions.json```
 
-## Linux
-
 Install compiler and build tools
 
 ```sudo apt-get install -y cmake build-essential gdb```
 
-# Building
+## Building
 
 Shaderators uses CMake to setup and run the build process.
-
-## Linux
 
 Run the following commands to build:
 
@@ -35,7 +33,7 @@ make
 
 CMake will download the neccessary dependencies like GoogleTests.
 
-# Unit testing
+## Unit testing
 
 To execute unit tests run from command line run
 
@@ -43,6 +41,50 @@ To execute unit tests run from command line run
 
 When using VS Code and all the recommended extensions were installed, then tests should be visible in the 'Test Explorer UI'.
 
+# Windows
+
+Two ways of working were tested:
+- using Visual Studio Code
+- using Visual Studio 2022
+
+## VS Code
+
+Just follow the IDE instructions to configure project with CMake.
+
+You can build using CMake extension, by just pressing build after the project was configured.
+
+Run tests from eg. Test explorer UI.
+
+Place breakpoint anywhere in the shader code to break. 
+
+NOTE: Hitting breakpoints require Debug build, so be sure to build this configuration.
+
+## Use Visual Studio
+
+## Setup
+
+Install VS with Google Test support.
+
+### Build and Debug 
+
+1. Open Shaderator.sln in VS 2022
+2. Build solution (better choose Debug configuration to see more variables under debugger)
+3. Set ```BitonicSort``` project in ```examples``` folder as startup project (right click on the project in Visual Studio and select "Set as StartUp Project")
+4. Put breakpoint anywhere in ComputeShaderSort11.hlsl shader file 
+5. Press F5 to Debug
+
+VS will start regular debugging session and you will be able to debug the .hlsl shader code as C++ code. You can see all variables, can add them to watch, pin or look-up values when hovering the mouse.
+CPU shader is obviously very slow. The intention is to provide tools for faster Computer Shader development.
+
+If you have Visual Assist X installed debugging experience may be reduced.
+
+### Unit Tests
+
+1. Open Shaderator.sln in VS 2022
+2. Build solution 
+3. Set processor architecture for Unit Tests. In VS menu go to "Test -> Test Settings -> Default Processor Architecture" and select the platform for which you have built the solution (X86 or X64).
+4. Open Test Explorer. In VS menu go to "Test -> Windows -> Test Explorer"
+5. In Test Explorer right click on the Unit Test found and press "Run Selected Tests" or "Debug Selected Tests"
 
 # Examples
 
@@ -66,32 +108,3 @@ At the moment matrices are not supported yet.
 # Problems or feedback
 
 Submit any issues on github. Feel free to contact the author directly with information available on github.
-
-
-# (old instructions) Windows - Getting started with debugging
-
-NOTE: This instructions are from year 2018 and serve as reference. Running Shaderator on Windows has not been tried since then.
-
-1. Open Shaderator.sln in VS 2017
-2. Build solution (better choose Debug configuration to see more variables under debugger)
-3. Set ComputeShaderSort11 in examples folder as startup project (right click on the project in Visual Studio and select "Set as StartUp Project")
-4. Put breakpoint anywhere in ComputeShaderSort11.hlsl shader file 
-5. Press F5 to Debug
-
-VS will start regular debugging session and you will be able to debug the .hlsl shader code as C++ code. You can see all variables, can add them to watch, pin or look-up values when hovering the mouse.
-CPU shader is obviously very slow. The intention is to provide tools for faster Computer Shader development.
-
-If you have Visual Assist X installed debugging experience may be reduced.
-
-# Getting started with Unit Tests
-
-1. Open Shaderator.sln in VS 2017
-2. Build solution 
-3. Set processor architecture for Unit Tests. In VS menu go to "Test -> Test Settings -> Default Processor Architecture" and select the platform for which you have built the solution (X86 or X64).
-4. Open Test Explorer. In VS menu go to "Test -> Windows -> Test Explorer"
-5. In Test Explorer right click on the Unit Test found and press "Run Selected Tests" or "Debug Selected Tests"
-
-# Pre-requisites
-
-* Windows 10
-* Visual Studio 2017

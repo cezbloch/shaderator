@@ -1,5 +1,7 @@
 add_library(BitonicSort "")
 
+set_source_files_properties(ComputeShaderSort11.hlsl PROPERTIES HEADER_FILE_ONLY TRUE)
+
 target_sources(BitonicSort
   PRIVATE
     bitonic_sort_executor.cpp
