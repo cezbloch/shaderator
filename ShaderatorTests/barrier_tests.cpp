@@ -3,19 +3,19 @@
 #include "gtest/gtest.h"
 #include <Barrier.h>
 #include <vector>
+#include <atomic>
 
 TEST(BarrierTests, 32_treads_are_properly_blocked)
 {
   int barrier_size = 32;
   Barrier barrier(barrier_size);
-  int beforeBarrier = 0;
-  int afterBarrier = 0;
-
+  std::atomic<int> beforeBarrier(0);
+  std::atomic<int> afterBarrier(0);
 
   auto use_barrier = [&]() {
     beforeBarrier++;
     barrier.Wait();
-    afterBarrier++;
+    afterBarrier++;// Atomic fetch add?
   };
 
   std::vector<std::thread> threads;
@@ -27,4 +27,7 @@ TEST(BarrierTests, 32_treads_are_properly_blocked)
   for (auto&& thread : threads) {
     thread.join();
   }
+ 
+  EXPECT_EQ(beforeBarrier.load(), barrier_size);
+  EXPECT_EQ(afterBarrier.load(), barrier_size);
 }
